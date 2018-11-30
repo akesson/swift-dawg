@@ -123,7 +123,7 @@
 		C3FA7E3B21B1A7EB0077C0A2 = {
 			isa = PBXGroup;
 			children = (
-				C3FA7E4721B1A7EB0077C0A2 /* source */,
+				C3FA7E4721B1A7EB0077C0A2 /* Sources */,
 				C3FA7E5221B1A7EB0077C0A2 /* tests */,
 				C330530F21B1AC9E00A77CA2 /* Dawg macOS */,
 				C330532D21B1DFC600A77CA2 /* DawgTests macOS */,
@@ -144,14 +144,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C3FA7E4721B1A7EB0077C0A2 /* source */ = {
+		C3FA7E4721B1A7EB0077C0A2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				C330531021B1AC9E00A77CA2 /* Dawg.h */,
 				C330530221B1A81B00A77CA2 /* Dawg.swift */,
 				C330530421B1A8BC00A77CA2 /* Levenshtein.swift */,
 			);
-			path = source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C3FA7E5221B1A7EB0077C0A2 /* tests */ = {
