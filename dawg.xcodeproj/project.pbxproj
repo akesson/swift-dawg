@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C330531E21B1AC9E00A77CA2 /* Dawg_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C330531021B1AC9E00A77CA2 /* Dawg_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C330531E21B1AC9E00A77CA2 /* Dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C330531021B1AC9E00A77CA2 /* Dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C330532521B1AD0A00A77CA2 /* Dawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530221B1A81B00A77CA2 /* Dawg.swift */; };
 		C330532621B1AD1F00A77CA2 /* Levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530421B1A8BC00A77CA2 /* Levenshtein.swift */; };
 		C330533121B1DFC600A77CA2 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330530E21B1AC9E00A77CA2 /* dawg.framework */; };
 		C330533721B1DFD200A77CA2 /* LevenshteinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */; };
-		C330534621B1E17500A77CA2 /* Dawg_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330533D21B1E17400A77CA2 /* Dawg_iOS.framework */; };
-		C330534D21B1E17500A77CA2 /* Dawg_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C330533F21B1E17400A77CA2 /* Dawg_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C330534621B1E17500A77CA2 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330533D21B1E17400A77CA2 /* dawg.framework */; };
 		C330535421B1E18800A77CA2 /* Dawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530221B1A81B00A77CA2 /* Dawg.swift */; };
 		C330535521B1E18B00A77CA2 /* Levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530421B1A8BC00A77CA2 /* Levenshtein.swift */; };
 		C330535621B1E1DB00A77CA2 /* DawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */; };
 		C330535721B1E1DC00A77CA2 /* DawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */; };
 		C330535821B1E1E100A77CA2 /* LevenshteinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */; };
+		C330535921B1E5D100A77CA2 /* Dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C330531021B1AC9E00A77CA2 /* Dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +43,11 @@
 		C330530421B1A8BC00A77CA2 /* Levenshtein.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levenshtein.swift; sourceTree = "<group>"; };
 		C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevenshteinTests.swift; sourceTree = "<group>"; };
 		C330530E21B1AC9E00A77CA2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C330531021B1AC9E00A77CA2 /* Dawg_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dawg_macOS.h; sourceTree = "<group>"; };
+		C330531021B1AC9E00A77CA2 /* Dawg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dawg.h; sourceTree = "<group>"; };
 		C330531121B1AC9E00A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C330532C21B1DFC600A77CA2 /* DawgTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DawgTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330533021B1DFC600A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C330533D21B1E17400A77CA2 /* Dawg_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dawg_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C330533F21B1E17400A77CA2 /* Dawg_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dawg_iOS.h; sourceTree = "<group>"; };
+		C330533D21B1E17400A77CA2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330534021B1E17400A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C330534521B1E17500A77CA2 /* Dawg iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dawg iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330534C21B1E17500A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C330534621B1E17500A77CA2 /* Dawg_iOS.framework in Frameworks */,
+				C330534621B1E17500A77CA2 /* dawg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +91,6 @@
 		C330530F21B1AC9E00A77CA2 /* Dawg macOS */ = {
 			isa = PBXGroup;
 			children = (
-				C330531021B1AC9E00A77CA2 /* Dawg_macOS.h */,
 				C330531121B1AC9E00A77CA2 /* Info.plist */,
 			);
 			path = "Dawg macOS";
@@ -109,7 +107,6 @@
 		C330533E21B1E17400A77CA2 /* Dawg iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C330533F21B1E17400A77CA2 /* Dawg_iOS.h */,
 				C330534021B1E17400A77CA2 /* Info.plist */,
 			);
 			path = "Dawg iOS";
@@ -141,7 +138,7 @@
 			children = (
 				C330530E21B1AC9E00A77CA2 /* dawg.framework */,
 				C330532C21B1DFC600A77CA2 /* DawgTests macOS.xctest */,
-				C330533D21B1E17400A77CA2 /* Dawg_iOS.framework */,
+				C330533D21B1E17400A77CA2 /* dawg.framework */,
 				C330534521B1E17500A77CA2 /* Dawg iOSTests.xctest */,
 			);
 			name = Products;
@@ -150,6 +147,7 @@
 		C3FA7E4721B1A7EB0077C0A2 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				C330531021B1AC9E00A77CA2 /* Dawg.h */,
 				C330530221B1A81B00A77CA2 /* Dawg.swift */,
 				C330530421B1A8BC00A77CA2 /* Levenshtein.swift */,
 			);
@@ -172,7 +170,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C330531E21B1AC9E00A77CA2 /* Dawg_macOS.h in Headers */,
+				C330531E21B1AC9E00A77CA2 /* Dawg.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +178,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C330534D21B1E17500A77CA2 /* Dawg_iOS.h in Headers */,
+				C330535921B1E5D100A77CA2 /* Dawg.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +236,7 @@
 			);
 			name = "Dawg iOS";
 			productName = "Dawg iOS";
-			productReference = C330533D21B1E17400A77CA2 /* Dawg_iOS.framework */;
+			productReference = C330533D21B1E17400A77CA2 /* dawg.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C330534421B1E17500A77CA2 /* Dawg iOSTests */ = {
@@ -407,7 +405,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = human.solutions.dawg.Dawg;
-				PRODUCT_NAME = "${PROJECT_NAME}";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -434,7 +432,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = human.solutions.dawg.Dawg;
-				PRODUCT_NAME = "${PROJECT_NAME}";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -498,7 +496,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.Dawg-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -522,7 +520,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.Dawg-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
