@@ -44,13 +44,13 @@
 		C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevenshteinTests.swift; sourceTree = "<group>"; };
 		C330530E21B1AC9E00A77CA2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330531021B1AC9E00A77CA2 /* Dawg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dawg.h; sourceTree = "<group>"; };
-		C330531121B1AC9E00A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C330532C21B1DFC600A77CA2 /* DawgTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DawgTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330533021B1DFC600A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C330533D21B1E17400A77CA2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C330534021B1E17400A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C330534521B1E17500A77CA2 /* Dawg iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dawg iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330534C21B1E17500A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C330535A21B1E88100A77CA2 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		C330535B21B1E88100A77CA2 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,28 +88,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C330530F21B1AC9E00A77CA2 /* Dawg macOS */ = {
-			isa = PBXGroup;
-			children = (
-				C330531121B1AC9E00A77CA2 /* Info.plist */,
-			);
-			path = "Dawg macOS";
-			sourceTree = "<group>";
-		};
 		C330532D21B1DFC600A77CA2 /* DawgTests macOS */ = {
 			isa = PBXGroup;
 			children = (
 				C330533021B1DFC600A77CA2 /* Info.plist */,
 			);
 			path = "DawgTests macOS";
-			sourceTree = "<group>";
-		};
-		C330533E21B1E17400A77CA2 /* Dawg iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C330534021B1E17400A77CA2 /* Info.plist */,
-			);
-			path = "Dawg iOS";
 			sourceTree = "<group>";
 		};
 		C330534921B1E17500A77CA2 /* Dawg iOSTests */ = {
@@ -125,9 +109,7 @@
 			children = (
 				C3FA7E4721B1A7EB0077C0A2 /* Sources */,
 				C3FA7E5221B1A7EB0077C0A2 /* tests */,
-				C330530F21B1AC9E00A77CA2 /* Dawg macOS */,
 				C330532D21B1DFC600A77CA2 /* DawgTests macOS */,
-				C330533E21B1E17400A77CA2 /* Dawg iOS */,
 				C330534921B1E17500A77CA2 /* Dawg iOSTests */,
 				C3FA7E4621B1A7EB0077C0A2 /* Products */,
 			);
@@ -147,6 +129,8 @@
 		C3FA7E4721B1A7EB0077C0A2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C330535A21B1E88100A77CA2 /* Info-iOS.plist */,
+				C330535B21B1E88100A77CA2 /* Info-macOS.plist */,
 				C330531021B1AC9E00A77CA2 /* Dawg.h */,
 				C330530221B1A81B00A77CA2 /* Dawg.swift */,
 				C330530421B1A8BC00A77CA2 /* Levenshtein.swift */,
@@ -396,7 +380,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Dawg macOS/Info.plist";
+				INFOPLIST_FILE = "Sources/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -404,7 +388,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = human.solutions.dawg.Dawg;
+				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -423,7 +407,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Dawg macOS/Info.plist";
+				INFOPLIST_FILE = "Sources/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,7 +415,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = human.solutions.dawg.Dawg;
+				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -488,14 +472,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Dawg iOS/Info.plist";
+				INFOPLIST_FILE = "Sources/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.Dawg-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -512,14 +496,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Dawg iOS/Info.plist";
+				INFOPLIST_FILE = "Sources/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.Dawg-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
