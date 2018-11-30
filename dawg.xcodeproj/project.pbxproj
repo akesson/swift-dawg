@@ -10,7 +10,7 @@
 		C330530321B1A81B00A77CA2 /* Dawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530221B1A81B00A77CA2 /* Dawg.swift */; };
 		C330530521B1A8BC00A77CA2 /* Levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530421B1A8BC00A77CA2 /* Levenshtein.swift */; };
 		C3FA7E4F21B1A7EB0077C0A2 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA7E4521B1A7EB0077C0A2 /* dawg.framework */; };
-		C3FA7E5421B1A7EB0077C0A2 /* dawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* dawgTests.swift */; };
+		C3FA7E5421B1A7EB0077C0A2 /* DawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */; };
 		C3FA7E5621B1A7EB0077C0A2 /* dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FA7E4821B1A7EB0077C0A2 /* dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		C3FA7E4821B1A7EB0077C0A2 /* dawg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dawg.h; sourceTree = "<group>"; };
 		C3FA7E4921B1A7EB0077C0A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3FA7E4E21B1A7EB0077C0A2 /* dawgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dawgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3FA7E5321B1A7EB0077C0A2 /* dawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dawgTests.swift; sourceTree = "<group>"; };
+		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
 		C3FA7E5521B1A7EB0077C0A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 		C3FA7E5221B1A7EB0077C0A2 /* dawgTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3FA7E5321B1A7EB0077C0A2 /* dawgTests.swift */,
+				C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */,
 				C3FA7E5521B1A7EB0077C0A2 /* Info.plist */,
 			);
 			path = dawgTests;
@@ -114,6 +114,7 @@
 				C3FA7E4121B1A7EB0077C0A2 /* Sources */,
 				C3FA7E4221B1A7EB0077C0A2 /* Frameworks */,
 				C3FA7E4321B1A7EB0077C0A2 /* Resources */,
+				C330530621B1A93E00A77CA2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -196,6 +197,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C330530621B1A93E00A77CA2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C3FA7E4121B1A7EB0077C0A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -210,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3FA7E5421B1A7EB0077C0A2 /* dawgTests.swift in Sources */,
+				C3FA7E5421B1A7EB0077C0A2 /* DawgTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

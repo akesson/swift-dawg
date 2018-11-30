@@ -1,5 +1,5 @@
 //
-//  dawgTests.swift
+//  DawgTests.swift
 //  dawgTests
 //
 //  Created by Henrik Akesson on 30/11/2018.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import dawg
 
-class dawgTests: XCTestCase {
+class DawgTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
