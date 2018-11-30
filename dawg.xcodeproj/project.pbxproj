@@ -45,10 +45,10 @@
 		C330530E21B1AC9E00A77CA2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330531021B1AC9E00A77CA2 /* Dawg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dawg.h; sourceTree = "<group>"; };
 		C330532C21B1DFC600A77CA2 /* DawgTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DawgTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C330533021B1DFC600A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C330533021B1DFC600A77CA2 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		C330533D21B1E17400A77CA2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C330534521B1E17500A77CA2 /* Dawg iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dawg iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C330534C21B1E17500A77CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C330534C21B1E17500A77CA2 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		C330535A21B1E88100A77CA2 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		C330535B21B1E88100A77CA2 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
@@ -88,29 +88,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C330532D21B1DFC600A77CA2 /* DawgTests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				C330533021B1DFC600A77CA2 /* Info.plist */,
-			);
-			path = "DawgTests macOS";
-			sourceTree = "<group>";
-		};
-		C330534921B1E17500A77CA2 /* Dawg iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				C330534C21B1E17500A77CA2 /* Info.plist */,
-			);
-			path = "Dawg iOSTests";
-			sourceTree = "<group>";
-		};
 		C3FA7E3B21B1A7EB0077C0A2 = {
 			isa = PBXGroup;
 			children = (
 				C3FA7E4721B1A7EB0077C0A2 /* Sources */,
 				C3FA7E5221B1A7EB0077C0A2 /* Tests */,
-				C330532D21B1DFC600A77CA2 /* DawgTests macOS */,
-				C330534921B1E17500A77CA2 /* Dawg iOSTests */,
 				C3FA7E4621B1A7EB0077C0A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,6 +123,8 @@
 		C3FA7E5221B1A7EB0077C0A2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C330533021B1DFC600A77CA2 /* Info-macOS.plist */,
+				C330534C21B1E17500A77CA2 /* Info-iOS.plist */,
 				C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */,
 				C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */,
 			);
@@ -429,7 +413,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "DawgTests macOS/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -449,7 +433,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "DawgTests macOS/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -516,7 +500,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Dawg iOSTests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +518,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Dawg iOSTests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
