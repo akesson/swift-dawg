@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C330530321B1A81B00A77CA2 /* Dawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530221B1A81B00A77CA2 /* Dawg.swift */; };
+		C330530521B1A8BC00A77CA2 /* Levenshtein.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530421B1A8BC00A77CA2 /* Levenshtein.swift */; };
 		C3FA7E4F21B1A7EB0077C0A2 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA7E4521B1A7EB0077C0A2 /* dawg.framework */; };
 		C3FA7E5421B1A7EB0077C0A2 /* dawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* dawgTests.swift */; };
 		C3FA7E5621B1A7EB0077C0A2 /* dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FA7E4821B1A7EB0077C0A2 /* dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		C330530221B1A81B00A77CA2 /* Dawg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dawg.swift; sourceTree = "<group>"; };
+		C330530421B1A8BC00A77CA2 /* Levenshtein.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levenshtein.swift; sourceTree = "<group>"; };
 		C3FA7E4521B1A7EB0077C0A2 /* dawg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = dawg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FA7E4821B1A7EB0077C0A2 /* dawg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dawg.h; sourceTree = "<group>"; };
 		C3FA7E4921B1A7EB0077C0A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				C3FA7E4821B1A7EB0077C0A2 /* dawg.h */,
 				C3FA7E4921B1A7EB0077C0A2 /* Info.plist */,
 				C330530221B1A81B00A77CA2 /* Dawg.swift */,
+				C330530421B1A8BC00A77CA2 /* Levenshtein.swift */,
 			);
 			path = dawg;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C330530321B1A81B00A77CA2 /* Dawg.swift in Sources */,
+				C330530521B1A8BC00A77CA2 /* Levenshtein.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
