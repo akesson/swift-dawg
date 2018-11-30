@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				C3FA7E4721B1A7EB0077C0A2 /* Sources */,
-				C3FA7E5221B1A7EB0077C0A2 /* tests */,
+				C3FA7E5221B1A7EB0077C0A2 /* Tests */,
 				C330532D21B1DFC600A77CA2 /* DawgTests macOS */,
 				C330534921B1E17500A77CA2 /* Dawg iOSTests */,
 				C3FA7E4621B1A7EB0077C0A2 /* Products */,
@@ -138,13 +138,13 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		C3FA7E5221B1A7EB0077C0A2 /* tests */ = {
+		C3FA7E5221B1A7EB0077C0A2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */,
 				C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */,
 			);
-			path = tests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
