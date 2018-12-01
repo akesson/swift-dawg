@@ -8,39 +8,35 @@
 
 import Foundation
 
-class TrieNode<T: Hashable> {
-    var value: T
-    var children: [T: TrieNode] = [:]
+class TrieNode: CustomStringConvertible {
+    var character: Character
+    var children: [Character: TrieNode] = [:]
     var isTerminating = false
-    
-    init(value: T) {
-        self.value = value
+
+    var description: String {
+        return "\(character)\(isTerminating ? "." : " ")"
+    }
+
+    init(character: Character) {
+        self.character = character
     }
     
-    func add(child: T) -> TrieNode {
+    func add(child: Character) -> TrieNode {
         if let foundChild = children[child] {
             return foundChild
         } else {
-            let node = TrieNode(value: child)
+            let node = TrieNode(character: child)
             children[child] = node
             return node
         }
     }
 }
 
-extension TrieNode: CustomStringConvertible where T == Character {
-    var description: String {
-        return "\(value)\(isTerminating ? "." : " ")"
-    }
-}
-
 class Trie {
-    typealias Node = TrieNode<Character>
-    
-    fileprivate let root: Node
+    fileprivate let root: TrieNode
     
     init() {
-        root = Node(value: "·")
+        root = TrieNode(character: "·")
     }
     
     func insert(word: String) {
