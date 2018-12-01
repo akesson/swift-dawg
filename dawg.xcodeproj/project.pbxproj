@@ -19,6 +19,10 @@
 		C330535721B1E1DC00A77CA2 /* DawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */; };
 		C330535821B1E1E100A77CA2 /* LevenshteinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */; };
 		C330535921B1E5D100A77CA2 /* Dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C330531021B1AC9E00A77CA2 /* Dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C330535D21B287DA00A77CA2 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330535C21B287DA00A77CA2 /* Trie.swift */; };
+		C330536021B28A5600A77CA2 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330535C21B287DA00A77CA2 /* Trie.swift */; };
+		C330536321B290CF00A77CA2 /* TrieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536121B290CB00A77CA2 /* TrieTests.swift */; };
+		C330536421B290CF00A77CA2 /* TrieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536121B290CB00A77CA2 /* TrieTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,8 @@
 		C330534C21B1E17500A77CA2 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		C330535A21B1E88100A77CA2 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		C330535B21B1E88100A77CA2 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		C330535C21B287DA00A77CA2 /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
+		C330536121B290CB00A77CA2 /* TrieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieTests.swift; sourceTree = "<group>"; };
 		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +122,7 @@
 				C330531021B1AC9E00A77CA2 /* Dawg.h */,
 				C330530221B1A81B00A77CA2 /* Dawg.swift */,
 				C330530421B1A8BC00A77CA2 /* Levenshtein.swift */,
+				C330535C21B287DA00A77CA2 /* Trie.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 				C330534C21B1E17500A77CA2 /* Info-iOS.plist */,
 				C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */,
 				C330530721B1AB0600A77CA2 /* LevenshteinTests.swift */,
+				C330536121B290CB00A77CA2 /* TrieTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 				C330530A21B1AC9E00A77CA2 /* Sources */,
 				C330530B21B1AC9E00A77CA2 /* Frameworks */,
 				C330530C21B1AC9E00A77CA2 /* Resources */,
+				C330535F21B28A3B00A77CA2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -197,6 +206,7 @@
 				C330533921B1E17400A77CA2 /* Sources */,
 				C330533A21B1E17400A77CA2 /* Frameworks */,
 				C330533B21B1E17400A77CA2 /* Resources */,
+				C330535E21B28A1200A77CA2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -300,11 +310,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C330535E21B28A1200A77CA2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C330535F21B28A3B00A77CA2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C330530A21B1AC9E00A77CA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C330535D21B287DA00A77CA2 /* Trie.swift in Sources */,
 				C330532521B1AD0A00A77CA2 /* Dawg.swift in Sources */,
 				C330532621B1AD1F00A77CA2 /* Levenshtein.swift in Sources */,
 			);
@@ -314,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C330536321B290CF00A77CA2 /* TrieTests.swift in Sources */,
 				C330535621B1E1DB00A77CA2 /* DawgTests.swift in Sources */,
 				C330533721B1DFD200A77CA2 /* LevenshteinTests.swift in Sources */,
 			);
@@ -323,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C330536021B28A5600A77CA2 /* Trie.swift in Sources */,
 				C330535421B1E18800A77CA2 /* Dawg.swift in Sources */,
 				C330535521B1E18B00A77CA2 /* Levenshtein.swift in Sources */,
 			);
@@ -332,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C330536421B290CF00A77CA2 /* TrieTests.swift in Sources */,
 				C330535721B1E1DC00A77CA2 /* DawgTests.swift in Sources */,
 				C330535821B1E1E100A77CA2 /* LevenshteinTests.swift in Sources */,
 			);
