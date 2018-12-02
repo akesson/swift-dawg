@@ -1,0 +1,8 @@
+digraph G {
+	c -> a -> "t." -> "s."
+	a -> "r."
+	c -> o1 -> o2 -> "l." -> e -> "r."
+	o1[label = "o"]
+	o2[label = "o"]
+}
+  

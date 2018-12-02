@@ -8,35 +8,16 @@
 
 import Foundation
 
-class TrieNode: CustomStringConvertible {
-    var character: Character
-    var children: [Character: TrieNode] = [:]
-    var isTerminating = false
-
-    var description: String {
-        return "\(character)\(isTerminating ? "." : " ")"
-    }
-
-    init(character: Character) {
-        self.character = character
-    }
-    
-    func add(child: Character) -> TrieNode {
-        if let foundChild = children[child] {
-            return foundChild
-        } else {
-            let node = TrieNode(character: child)
-            children[child] = node
-            return node
-        }
-    }
-}
-
 class Trie {
     fileprivate let root: TrieNode
     
     init() {
         root = TrieNode(character: "·")
+    }
+    
+    convenience init(_ values: String...) {
+        self.init()
+        values.forEach { insert(word: $0) }
     }
     
     func insert(word: String) {
@@ -50,7 +31,7 @@ class Trie {
             currentNode = currentNode.add(child: character)
 
             if idx == characters.count - 1 {
-                currentNode.isTerminating = true
+                currentNode.word = word
             }
         }
     }
@@ -69,5 +50,12 @@ class Trie {
         }
         
         return currentIndex == characters.count && currentNode.isTerminating
+    }
+    
+    func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
+        let substring = word[word.startIndex..<word.endIndex]
+        var found = MinValueDictionary()
+        root.search(substring, currentCost: 0, maxCost: maxDistance, &found)
+        return found
     }
 }
