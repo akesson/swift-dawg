@@ -12,7 +12,7 @@ class Trie {
     fileprivate let root: TrieNode
     
     init() {
-        root = TrieNode(character: "·")
+        root = TrieNode(character: ".")
     }
     
     convenience init(_ values: String...) {
@@ -26,14 +26,11 @@ class Trie {
         var currentNode = root
         let characters = word.lowercased()
         
-        for (idx, character) in characters.enumerated() {
-            
+        for character in characters {
             currentNode = currentNode.add(child: character)
-
-            if idx == characters.count - 1 {
-                currentNode.word = word
-            }
         }
+        currentNode = currentNode.add(child: ".")
+        currentNode.word = word
     }
     
     func contains(word: String) -> Bool {
@@ -49,13 +46,18 @@ class Trie {
             currentNode = child
         }
         
-        return currentIndex == characters.count && currentNode.isTerminating
+        if currentNode.children["."] != nil {
+            return currentIndex == characters.count
+        }
+        return false
     }
     
     func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
         let substring = word[word.startIndex..<word.endIndex]
         var found = MinValueDictionary()
-        root.search(substring, currentCost: 0, maxCost: maxDistance, &found)
+        for node in root.children.values {
+            node.search(substring, currentCost: 0, maxCost: maxDistance, &found)
+        }
         return found
     }
 }

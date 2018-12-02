@@ -17,6 +17,7 @@ class TrieNode: CustomStringConvertible {
     var path: String { return "\(parent?.path ?? "")\(description)" }
     
     var isTerminating: Bool { return word != nil }
+    var isRoot: Bool { return character == "·"}
     
     var description: String { return "\(character)\(isTerminating ? "." : "")" }
     
@@ -38,58 +39,31 @@ class TrieNode: CustomStringConvertible {
     func debug(cost: Int, searched: String.SubSequence, foundReason: String? = nil) {
         //print("\(cost)  \(path) == \(searched) \(foundReason ?? "")")
     }
+
+    func searchTerminating(_ searched: String.SubSequence,
+                           currentCost cost: Int,
+                           maxCost max: Int,
+                           _ found: inout MinValueDictionary) {
+        
+        //if there are any search characters left,
+        //they will have to be deleted
+        let totalCost = searched.count + cost
+        if totalCost <= max, let word = word {
+            found[word] = totalCost
+        }
+    }
     
-    func search(_ searched: String.SubSequence,
-                currentCost cost: Int,
-                maxCost max: Int,
-                _ found: inout MinValueDictionary) {
-        
-        if character == "·" {
-            children.values.forEach { $0.search(searched, currentCost: 0, maxCost: max, &found) }
-            return
-        }
-        
-        //if there are no more children, you can only delete the remaining chars
-        //in the search term (with a cost = amount of chars.
-        if children.count == 0 {
-            if searched.count == 0 {
-                if cost <= max, let word = word {
-                    found[word] = cost
-                }
-                return
-            }
-            if let char = searched.first, char == character {
-                self.search(searched.dropFirst(), currentCost: cost, maxCost: max, &found)
-            } else {
-                self.search(searched.dropFirst(), currentCost: cost + 1, maxCost: max, &found)
-            }
-        }
-        
-        // match condition: searched.count == 0 cost <= max cost and has word
-        if let word = word {
-            if searched.count == 1, let char = searched.first, char == character {
-                found[word] = cost
-                debug(cost: cost, searched: searched, foundReason: "match char")
-            } else if searched.count == 0 {
-                found[word] = cost
-                debug(cost: cost, searched: searched, foundReason: "match searched.count")
-            } else {
-                debug(cost: cost, searched: searched)
-            }
-        } else {
-            debug(cost: cost, searched: searched)
-        }
-        
-        // stop conditions: children.count == 0 or cost == maxCost
-        //  note that searched.count == 0 is not a stop critera
-        if cost > max {
-            return
-        }
+    func searchNode(_ searched: String.SubSequence,
+                    currentCost cost: Int,
+                    maxCost max: Int,
+                    _ found: inout MinValueDictionary) {
         
         // [match] character matches
         if let char = searched.first, char == character {
             //search all children for next step
-            children.values.forEach { $0.search(searched.dropFirst(), currentCost: cost, maxCost: max, &found) }
+            for child in children.values {
+                child.search(searched.dropFirst(), currentCost: cost, maxCost: max, &found)
+            }
         }
         
         // [delete] skip one from search term and try with same node
@@ -105,14 +79,18 @@ class TrieNode: CustomStringConvertible {
             child.search(searched.dropFirst(), currentCost: cost + 1, maxCost: max, &found)
         }
     }
+    
+    func search(_ searched: String.SubSequence,
+                currentCost cost: Int,
+                maxCost max: Int,
+                _ found: inout MinValueDictionary) {
+        
+        if cost > max {
+            return
+        } else if isTerminating {
+            searchTerminating(searched, currentCost: cost, maxCost: max, &found)
+        } else {
+            searchNode(searched, currentCost: cost, maxCost: max, &found)
+        }
+    }
 }
-
-/*
- Case 1. Remaining on end
-    d e  -- d e _
-      |       |      match
-
-    d e  -- d e _
-      |         |   delete
-
- */
