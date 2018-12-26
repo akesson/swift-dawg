@@ -26,6 +26,7 @@
 		C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
+		C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +388,7 @@
 				C330535421B1E18800A77CA2 /* Dawg.swift in Sources */,
 				C330535521B1E18B00A77CA2 /* Levenshtein.swift in Sources */,
 				C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */,
+				C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
