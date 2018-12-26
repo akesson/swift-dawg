@@ -12,34 +12,26 @@ class TrieNode: CustomStringConvertible {
     var character: Character
     var word: String?
     var children: [Character: TrieNode] = [:]
-    weak var parent: TrieNode?
-    
-    var path: String { return "\(parent?.path ?? "")\(description)" }
     
     var isTerminating: Bool { return word != nil }
     var isRoot: Bool { return character == "·"}
     
     var description: String { return "\(character)\(isTerminating ? "." : "")" }
     
-    init(character: Character, parent: TrieNode? = nil) {
+    init(character: Character) {
         self.character = character
-        self.parent = parent
     }
     
     func add(child: Character) -> TrieNode {
         if let foundChild = children[child] {
             return foundChild
         } else {
-            let node = TrieNode(character: child, parent: self)
+            let node = TrieNode(character: child)
             children[child] = node
             return node
         }
     }
     
-    func debug(cost: Int, searched: String.SubSequence, foundReason: String? = nil) {
-        //print("\(cost)  \(path) == \(searched) \(foundReason ?? "")")
-    }
-
     func searchTerminating(_ searched: String.SubSequence,
                            currentCost cost: Int,
                            maxCost max: Int,
