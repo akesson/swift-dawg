@@ -40,13 +40,13 @@ class Trie {
         var currentIndex = 0
         
         while currentIndex < characters.count,
-            let child = currentNode.children[characters[currentIndex]] {
+            let child = currentNode.findChild(with: characters[currentIndex]) {
             
             currentIndex += 1
             currentNode = child
         }
         
-        if currentNode.children["."] != nil {
+        if currentNode.findChild(with: ".") != nil {
             return currentIndex == characters.count
         }
         return false
@@ -55,7 +55,7 @@ class Trie {
     func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
         let substring = word[word.startIndex..<word.endIndex]
         var found = MinValueDictionary()
-        for node in root.children.values {
+        for node in root.children {
             node.search(substring, currentCost: 0, maxCost: maxDistance, &found)
         }
         return found

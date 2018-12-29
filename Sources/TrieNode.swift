@@ -11,7 +11,7 @@ import Foundation
 class TrieNode: CustomStringConvertible {
     var character: Character
     var word: String?
-    var children: [Character: TrieNode] = [:]
+    var children = [TrieNode]()
     
     var isTerminating: Bool { return word != nil }
     var isRoot: Bool { return character == "·"}
@@ -23,13 +23,18 @@ class TrieNode: CustomStringConvertible {
     }
     
     func add(child: Character) -> TrieNode {
-        if let foundChild = children[child] {
+        
+        if let foundChild = findChild(with: child) {
             return foundChild
         } else {
             let node = TrieNode(character: child)
-            children[child] = node
+            children.append(node)
             return node
         }
+    }
+    
+    func findChild(with character: Character) -> TrieNode? {
+        return children.first(where: { $0.character == character })
     }
     
     func searchTerminating(_ searched: String.SubSequence,
@@ -53,7 +58,7 @@ class TrieNode: CustomStringConvertible {
         // [match] character matches
         if let char = searched.first, char == character {
             //search all children for next step
-            for child in children.values {
+            for child in children {
                 child.search(searched.dropFirst(), currentCost: cost, maxCost: max, &found)
             }
         }
@@ -62,12 +67,12 @@ class TrieNode: CustomStringConvertible {
         self.search(searched.dropFirst(), currentCost: cost + 1, maxCost: max, &found)
         
         // [insert] skip this node
-        for child in children.values {
+        for child in children {
             child.search(searched, currentCost: cost + 1, maxCost: max, &found)
         }
         
         // [replace] skip node + skip one char from search term
-        for child in children.values {
+        for child in children {
             child.search(searched.dropFirst(), currentCost: cost + 1, maxCost: max, &found)
         }
     }
