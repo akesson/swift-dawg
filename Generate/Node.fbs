@@ -1,0 +1,11 @@
+table SerializedNode {
+    character : string;
+    word : string;
+    children : [uint];
+}
+
+table SerializedNodes {
+    array : [SerializedNode];
+}
+
+root_type SerializedNodes;

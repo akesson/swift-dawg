@@ -30,6 +30,8 @@
 		C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
+		C3B78DBB21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
+		C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
 		C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,9 @@
 		C330536121B290CB00A77CA2 /* TrieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieTests.swift; sourceTree = "<group>"; };
 		C330536521B3E5A100A77CA2 /* TrieNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
 		C330536821B41F9800A77CA2 /* MinValueDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinValueDictionary.swift; sourceTree = "<group>"; };
+		C3B78DB421D7DC5200DFECE3 /* Generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Generate.sh; sourceTree = "<group>"; };
+		C3B78DB521D7DC5200DFECE3 /* Node.fbs */ = {isa = PBXFileReference; lastKnownFileType = text; path = Node.fbs; sourceTree = "<group>"; };
+		C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializedNodes.swift; sourceTree = "<group>"; };
 		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,9 +148,27 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		C3B78DB321D7DACB00DFECE3 /* Generate */ = {
+			isa = PBXGroup;
+			children = (
+				C3B78DB421D7DC5200DFECE3 /* Generate.sh */,
+				C3B78DB521D7DC5200DFECE3 /* Node.fbs */,
+			);
+			path = Generate;
+			sourceTree = "<group>";
+		};
+		C3B78DB621D7DC7500DFECE3 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		C3FA7E3B21B1A7EB0077C0A2 = {
 			isa = PBXGroup;
 			children = (
+				C3B78DB321D7DACB00DFECE3 /* Generate */,
 				C304C76E21D7A1950090B389 /* Resources */,
 				C3FA7E4721B1A7EB0077C0A2 /* Sources */,
 				C3FA7E5221B1A7EB0077C0A2 /* Tests */,
@@ -168,6 +191,7 @@
 		C3FA7E4721B1A7EB0077C0A2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C3B78DB621D7DC7500DFECE3 /* Generated */,
 				C330535A21B1E88100A77CA2 /* Info-iOS.plist */,
 				C330535B21B1E88100A77CA2 /* Info-macOS.plist */,
 				C330531021B1AC9E00A77CA2 /* Dawg.h */,
@@ -434,6 +458,7 @@
 				C330532621B1AD1F00A77CA2 /* Levenshtein.swift in Sources */,
 				C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */,
 				C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */,
+				C3B78DBB21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +481,7 @@
 				C330535521B1E18B00A77CA2 /* Levenshtein.swift in Sources */,
 				C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */,
 				C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */,
+				C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

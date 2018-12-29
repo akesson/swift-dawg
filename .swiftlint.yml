@@ -1,5 +1,7 @@
 included:
   - Sources
   - Tests
+excluded:
+  - Sources/Generated
 disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
