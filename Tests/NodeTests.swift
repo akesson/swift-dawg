@@ -16,6 +16,15 @@ class NodeTests: XCTestCase {
     let oneCharTrie = Trie("y")
     let twoCharTrie = Trie("de")
     
+    func testEqualityMatch() {
+        let cat2Trie = Trie("cat", "cats", "catsy", "car", "cool", "cooler")
+        XCTAssertTrue(catTrie == cat2Trie)
+    }
+    
+    func testEqualityNoMatch() {
+        XCTAssertFalse(catTrie == abcTrie)
+    }
+
     func testOneCharTrieMatch() {
         let found = oneCharTrie.approximateMatches(for: "y", maxDistance: 1)
         XCTAssertEqual(found.count, 1)

@@ -60,3 +60,9 @@ class Trie {
         return found
     }
 }
+
+extension Trie: Equatable {
+    static func == (lhs: Trie, rhs: Trie) -> Bool {
+        return lhs.root == rhs.root
+    }
+}

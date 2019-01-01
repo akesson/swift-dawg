@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Node {
+protocol Node: Equatable {
     var character: Character { get }
     var word: String? { get }
     var children: [TrieNode] { get }
@@ -83,4 +83,21 @@ extension Node {
             searchNode(searched, currentCost: cost, maxCost: max, &found)
         }
     }
+}
+
+// MARK: - Equality
+
+func == <T: Node>(lhs: T, rhs: T) -> Bool {
+    guard lhs.character == rhs.character,
+        lhs.word == rhs.word,
+        lhs.children.count == rhs.children.count else {
+            return false
+    }
+    
+    for index in 0..<lhs.children.count {
+        guard lhs.children[index] == rhs.children[index] else {
+            return false
+        }
+    }
+    return true
 }
