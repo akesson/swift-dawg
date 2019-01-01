@@ -15,6 +15,13 @@ class Trie {
         root = TrieNode(character: ".")
     }
     
+    init?(_ serializedNodes: [SerializedNode]) {
+        guard let root = serializedNodes.deserialized else {
+            return nil
+        }
+        self.root = root
+    }
+    
     convenience init(_ values: String...) {
         self.init()
         values.forEach { insert(word: $0) }
@@ -58,6 +65,12 @@ class Trie {
             node.search(substring, currentCost: 0, maxCost: maxDistance, &found)
         }
         return found
+    }
+    
+    func serialize() -> [SerializedNode] {
+        var serialised = [SerializedNode]()
+        _ = root.serialize(to: &serialised)
+        return serialised
     }
 }
 

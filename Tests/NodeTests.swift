@@ -23,5 +23,25 @@ class NodeTests: XCTestCase {
     
     func testEqualityNoMatch() {
         XCTAssertFalse(catTrie == abcTrie)
+        XCTAssertFalse(oneCharTrie == twoCharTrie)
+    }
+    
+    func testSerializeInMemory() {
+        let serialized = catTrie.serialize()
+        let catTrieFromSerialized = Trie(serialized)
+        XCTAssertTrue(catTrie == catTrieFromSerialized)
+    }
+
+    func testSerializeToData() throws {
+        let serializer = SerializedNodes(array: catTrie.serialize())
+        let data = try serializer.makeData()
+        
+        let deserializer = SerializedNodes.from(data: data)
+        guard let array = deserializer?.array else {
+            XCTFail("no data")
+            return
+        }
+        let catTrieFromSerialized = Trie(array)
+        XCTAssertTrue(catTrie == catTrieFromSerialized)
     }
 }

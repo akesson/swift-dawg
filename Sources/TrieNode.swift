@@ -42,7 +42,7 @@ extension TrieNode {
     }
     
     convenience init(_ node: SerializedNode, _ children: [TrieNode]) {
-        guard let character = node.word?.first else {
+        guard let character = node.character?.first else {
             fatalError("Error in serialization: missing character value")
         }
         self.init(character: character, word: node.word)
