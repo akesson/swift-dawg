@@ -105,8 +105,8 @@ extension SerializedNodes {
 public final class SerializedNode {
     public var character: String?
     public var word: String?
-    public var children: [UInt32]
-    public init(character: String? = nil, word: String? = nil, children: [UInt32] = []) {
+    public var children: [Int32]
+    public init(character: String? = nil, word: String? = nil, children: [Int32] = []) {
         self.character = character
         self.word = word
         self.children = children
@@ -144,7 +144,7 @@ extension SerializedNode.Direct {
         guard let offset = _reader.offset(objectOffset: _myOffset, propertyIndex:1) else {return nil}
         return _reader.stringBuffer(stringOffset: offset)
     }
-    public var children: FlatBuffersScalarVector<UInt32, T> {
+    public var children: FlatBuffersScalarVector<Int32, T> {
 
         return FlatBuffersScalarVector(reader: _reader, myOffset: _reader.offset(objectOffset: _myOffset, propertyIndex:2))
     }
@@ -197,7 +197,7 @@ extension SerializedNode {
         if self.children.isEmpty {
             children = nil
         } else {
-            try builder.startVector(count: self.children.count, elementSize: MemoryLayout<UInt32>.stride)
+            try builder.startVector(count: self.children.count, elementSize: MemoryLayout<Int32>.stride)
             for o in self.children.reversed() {
                 builder.insert(value: o)
             }

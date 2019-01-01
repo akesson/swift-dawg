@@ -28,6 +28,8 @@
 		C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
 		C3B78DBF21D7E2F000DFECE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBE21D7E2F000DFECE3 /* String.swift */; };
 		C3B78DC021D7E2F000DFECE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBE21D7E2F000DFECE3 /* String.swift */; };
+		C3B78DC221D7E7AE00DFECE3 /* SerializedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */; };
+		C3B78DC321D7E7AE00DFECE3 /* SerializedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */; };
 		C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,7 @@
 		C3B78DB521D7DC5200DFECE3 /* Node.fbs */ = {isa = PBXFileReference; lastKnownFileType = text; path = Node.fbs; sourceTree = "<group>"; };
 		C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializedNodes.swift; sourceTree = "<group>"; };
 		C3B78DBE21D7E2F000DFECE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializedNode.swift; sourceTree = "<group>"; };
 		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B78DBE21D7E2F000DFECE3 /* String.swift */,
+				C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +462,7 @@
 				C3B78DBF21D7E2F000DFECE3 /* String.swift in Sources */,
 				C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */,
 				C3B78DBB21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */,
+				C3B78DC221D7E7AE00DFECE3 /* SerializedNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +484,7 @@
 				C3B78DC021D7E2F000DFECE3 /* String.swift in Sources */,
 				C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */,
 				C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */,
+				C3B78DC321D7E7AE00DFECE3 /* SerializedNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

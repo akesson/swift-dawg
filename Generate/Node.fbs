@@ -1,7 +1,7 @@
 table SerializedNode {
     character : string;
     word : string;
-    children : [uint];
+    children : [int32];
 }
 
 table SerializedNodes {

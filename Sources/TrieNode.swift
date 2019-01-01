@@ -91,3 +91,24 @@ class TrieNode: CustomStringConvertible {
         }
     }
 }
+
+// MARK: - Serialization and deserialisation
+
+extension TrieNode {
+    
+    /// depth-first serialization of nodes (root is the last one)
+    func serialize(to array: inout [SerializedNode]) -> Int32 {
+        let childrenAsPositions = children.map({ $0.serialize(to: &array) })
+        array.append(SerializedNode(character, word, childrenAsPositions))
+        return Int32(array.count - 1)
+    }
+    
+    convenience init(_ node: SerializedNode, _ children: [TrieNode]) {
+        guard let character = node.word?.first else {
+            fatalError("Error in serialization: missing character value")
+        }
+        self.init(character: character)
+        self.word = node.word
+        self.children = children
+    }
+}
