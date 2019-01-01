@@ -27,10 +27,9 @@ class Trie {
         let characters = word.lowercased()
         
         for character in characters {
-            currentNode = currentNode.add(child: character)
+            currentNode = currentNode.add(child: character, word: nil)
         }
-        currentNode = currentNode.add(child: ".")
-        currentNode.word = word
+        currentNode = currentNode.add(child: ".", word: word)
     }
     
     func contains(word: String) -> Bool {

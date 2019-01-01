@@ -14,8 +14,8 @@
 		C330531E21B1AC9E00A77CA2 /* Dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C330531021B1AC9E00A77CA2 /* Dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C330533121B1DFC600A77CA2 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330530E21B1AC9E00A77CA2 /* dawg.framework */; };
 		C330534621B1E17500A77CA2 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330533D21B1E17400A77CA2 /* dawg.framework */; };
-		C330535621B1E1DB00A77CA2 /* DawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */; };
-		C330535721B1E1DC00A77CA2 /* DawgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */; };
+		C330535621B1E1DB00A77CA2 /* NodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* NodeTests.swift */; };
+		C330535721B1E1DC00A77CA2 /* NodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7E5321B1A7EB0077C0A2 /* NodeTests.swift */; };
 		C330535921B1E5D100A77CA2 /* Dawg.h in Headers */ = {isa = PBXBuildFile; fileRef = C330531021B1AC9E00A77CA2 /* Dawg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C330535D21B287DA00A77CA2 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330535C21B287DA00A77CA2 /* Trie.swift */; };
 		C330536021B28A5600A77CA2 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330535C21B287DA00A77CA2 /* Trie.swift */; };
@@ -30,6 +30,8 @@
 		C3B78DC021D7E2F000DFECE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBE21D7E2F000DFECE3 /* String.swift */; };
 		C3B78DC221D7E7AE00DFECE3 /* SerializedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */; };
 		C3B78DC321D7E7AE00DFECE3 /* SerializedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */; };
+		C3B78DC521DC05C200DFECE3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DC421DC05C200DFECE3 /* Node.swift */; };
+		C3B78DC621DC05C200DFECE3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DC421DC05C200DFECE3 /* Node.swift */; };
 		C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +90,8 @@
 		C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializedNodes.swift; sourceTree = "<group>"; };
 		C3B78DBE21D7E2F000DFECE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C3B78DC121D7E7AE00DFECE3 /* SerializedNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializedNode.swift; sourceTree = "<group>"; };
-		C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawgTests.swift; sourceTree = "<group>"; };
+		C3B78DC421DC05C200DFECE3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		C3FA7E5321B1A7EB0077C0A2 /* NodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,7 @@
 				C330531021B1AC9E00A77CA2 /* Dawg.h */,
 				C330535C21B287DA00A77CA2 /* Trie.swift */,
 				C330536521B3E5A100A77CA2 /* TrieNode.swift */,
+				C3B78DC421DC05C200DFECE3 /* Node.swift */,
 				C330536821B41F9800A77CA2 /* MinValueDictionary.swift */,
 			);
 			path = Sources;
@@ -214,7 +218,7 @@
 			children = (
 				C330533021B1DFC600A77CA2 /* Info-macOS.plist */,
 				C330534C21B1E17500A77CA2 /* Info-iOS.plist */,
-				C3FA7E5321B1A7EB0077C0A2 /* DawgTests.swift */,
+				C3FA7E5321B1A7EB0077C0A2 /* NodeTests.swift */,
 				C330536121B290CB00A77CA2 /* TrieTests.swift */,
 			);
 			path = Tests;
@@ -457,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B78DC521DC05C200DFECE3 /* Node.swift in Sources */,
 				C330535D21B287DA00A77CA2 /* Trie.swift in Sources */,
 				C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */,
 				C3B78DBF21D7E2F000DFECE3 /* String.swift in Sources */,
@@ -471,7 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C330536321B290CF00A77CA2 /* TrieTests.swift in Sources */,
-				C330535621B1E1DB00A77CA2 /* DawgTests.swift in Sources */,
+				C330535621B1E1DB00A77CA2 /* NodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B78DC621DC05C200DFECE3 /* Node.swift in Sources */,
 				C330536021B28A5600A77CA2 /* Trie.swift in Sources */,
 				C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */,
 				C3B78DC021D7E2F000DFECE3 /* String.swift in Sources */,
@@ -493,7 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C330536421B290CF00A77CA2 /* TrieTests.swift in Sources */,
-				C330535721B1E1DC00A77CA2 /* DawgTests.swift in Sources */,
+				C330535721B1E1DC00A77CA2 /* NodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
