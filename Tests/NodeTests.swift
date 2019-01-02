@@ -28,12 +28,12 @@ class NodeTests: XCTestCase {
     
     func testSerializeInMemory() {
         let serialized = catTrie.serialize()
-        let catTrieFromSerialized = Trie(serialized)
+        let catTrieFromSerialized = Trie(serialized.array)
         XCTAssertTrue(catTrie == catTrieFromSerialized)
     }
 
     func testSerializeToData() throws {
-        let serializer = SerializedNodes(array: catTrie.serialize())
+        let serializer = catTrie.serialize()
         let data = try serializer.makeData()
         
         let deserializer = SerializedNodes.from(data: data)

@@ -15,11 +15,14 @@ class Trie {
         root = TrieNode(character: ".")
     }
     
-    init?(_ serializedNodes: [SerializedNode]) {
-        guard let root = serializedNodes.deserialized else {
-            return nil
-        }
-        self.root = root
+    init(_ serializedNodes: [SerializedNode]) {
+        self.root = serializedNodes.deserialized ?? TrieNode(character: ".")
+    }
+    
+    convenience init(csvFile: String, separator: Character = "\n") {
+        self.init()
+        let lines = csvFile.split(separator: separator)
+        lines.forEach({ self.insert(word: String($0)) })
     }
     
     convenience init(_ values: String...) {
@@ -67,10 +70,10 @@ class Trie {
         return found
     }
     
-    func serialize() -> [SerializedNode] {
+    func serialize() -> SerializedNodes {
         var serialised = [SerializedNode]()
         _ = root.serialize(to: &serialised)
-        return serialised
+        return SerializedNodes(array: serialised)
     }
 }
 
