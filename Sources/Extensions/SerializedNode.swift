@@ -9,7 +9,7 @@
 import Foundation
 
 extension SerializedNode {
-    convenience init(_ character: Character, _ word: String?, _ children: [Int32]) {
-        self.init(character: String(character), word: word, children: children)
+    convenience init(_ character: Character, _ children: [Int32]) {
+        self.init(character: String(character), children: children)
     }
 }

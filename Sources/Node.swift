@@ -10,15 +10,19 @@ import Foundation
 
 protocol Node: Equatable {
     var character: Character { get }
-    var word: String? { get }
     var children: [TrieNode] { get }
+}
+
+struct Char {
+    static let termination: Character = "#"
+    static var root: Character = "@"
 }
 
 // MARK: - calculated properties
 
 extension Node {
-    var isTerminating: Bool { return word != nil }
-    var isRoot: Bool { return character == "·"}
+    var isTerminating: Bool { return character == Char.termination }
+    var isRoot: Bool { return character == Char.root }
     
     var description: String { return "\(character)\(isTerminating ? "." : "")" }
 }
@@ -31,56 +35,62 @@ extension Node {
     }
     
     func searchTerminating(_ searched: String.SubSequence,
-                           currentCost cost: Int,
+                           _ cost: Int,
                            maxCost max: Int,
+                           _ path: [Character],
                            _ found: inout MinValueDictionary) {
         
         //if there are any search characters left,
         //they will have to be deleted
         let totalCost = searched.count + cost
-        if totalCost <= max, let word = word {
+        if totalCost <= max {
+            let word = String(path)
             found[word] = totalCost
         }
     }
     
     func searchNode(_ searched: String.SubSequence,
-                    currentCost cost: Int,
+                    _ cost: Int,
                     maxCost max: Int,
+                    _ path: [Character],
                     _ found: inout MinValueDictionary) {
-        
+
+        let newPath = path.appending(character)
+
         // [match] character matches
         if let char = searched.first, char == character {
             //search all children for next step
             for child in children {
-                child.search(searched.dropFirst(), currentCost: cost, maxCost: max, &found)
+                child.search(searched.dropFirst(), cost, maxCost: max, newPath, &found)
             }
         }
         
         // [delete] skip one from search term and try with same node
-        self.search(searched.dropFirst(), currentCost: cost + 1, maxCost: max, &found)
+        self.search(searched.dropFirst(), cost + 1, maxCost: max, path, &found)
         
         // [insert] skip this node
         for child in children {
-            child.search(searched, currentCost: cost + 1, maxCost: max, &found)
+            child.search(searched, cost + 1, maxCost: max, newPath, &found)
         }
         
         // [replace] skip node + skip one char from search term
         for child in children {
-            child.search(searched.dropFirst(), currentCost: cost + 1, maxCost: max, &found)
+            child.search(searched.dropFirst(), cost + 1, maxCost: max, newPath, &found)
         }
     }
     
     func search(_ searched: String.SubSequence,
-                currentCost cost: Int,
+                _ cost: Int,
                 maxCost max: Int,
+                _ path: [Character],
                 _ found: inout MinValueDictionary) {
         
         if cost > max {
             return
         } else if isTerminating {
-            searchTerminating(searched, currentCost: cost, maxCost: max, &found)
+            searchTerminating(searched, cost, maxCost: max, path, &found)
         } else {
-            searchNode(searched, currentCost: cost, maxCost: max, &found)
+            searchNode(searched, cost, maxCost: max, path, &found)
         }
     }
 }
@@ -89,7 +99,6 @@ extension Node {
 
 func == <T: Node>(lhs: T, rhs: T) -> Bool {
     guard lhs.character == rhs.character,
-        lhs.word == rhs.word,
         lhs.children.count == rhs.children.count else {
             return false
     }

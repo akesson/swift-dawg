@@ -104,11 +104,9 @@ extension SerializedNodes {
 }
 public final class SerializedNode {
     public var character: String?
-    public var word: String?
     public var children: [Int32]
-    public init(character: String? = nil, word: String? = nil, children: [Int32] = []) {
+    public init(character: String? = nil, children: [Int32] = []) {
         self.character = character
-        self.word = word
         self.children = children
     }
     public struct Direct<T : FlatBuffersReader> : Hashable, FlatBuffersDirectAccess {
@@ -140,13 +138,9 @@ extension SerializedNode.Direct {
         guard let offset = _reader.offset(objectOffset: _myOffset, propertyIndex:0) else {return nil}
         return _reader.stringBuffer(stringOffset: offset)
     }
-    public var word: UnsafeBufferPointer<UInt8>? {
-        guard let offset = _reader.offset(objectOffset: _myOffset, propertyIndex:1) else {return nil}
-        return _reader.stringBuffer(stringOffset: offset)
-    }
     public var children: FlatBuffersScalarVector<Int32, T> {
 
-        return FlatBuffersScalarVector(reader: _reader, myOffset: _reader.offset(objectOffset: _myOffset, propertyIndex:2))
+        return FlatBuffersScalarVector(reader: _reader, myOffset: _reader.offset(objectOffset: _myOffset, propertyIndex:1))
     }
 }
 extension SerializedNode {
@@ -161,24 +155,20 @@ extension SerializedNode {
         let o = SerializedNode()
         selfReader._reader.cache?.objectPool[selfReader._myOffset] = o
         o.character = selfReader.character§
-        o.word = selfReader.word§
         o.children = selfReader.children.compactMap{$0}
 
         return o
     }
 }
 extension FlatBuffersBuilder {
-    public func insertSerializedNode(character: Offset? = nil, word: Offset? = nil, children: Offset? = nil) throws -> (Offset, [Int?]) {
-        var valueCursors = [Int?](repeating: nil, count: 3)
-        try self.startObject(withPropertyCount: 3)
+    public func insertSerializedNode(character: Offset? = nil, children: Offset? = nil) throws -> (Offset, [Int?]) {
+        var valueCursors = [Int?](repeating: nil, count: 2)
+        try self.startObject(withPropertyCount: 2)
         if let character = character {
             valueCursors[0] = try self.insert(offset: character, toStartedObjectAt: 0)
         }
-        if let word = word {
-            valueCursors[1] = try self.insert(offset: word, toStartedObjectAt: 1)
-        }
         if let children = children {
-            valueCursors[2] = try self.insert(offset: children, toStartedObjectAt: 2)
+            valueCursors[1] = try self.insert(offset: children, toStartedObjectAt: 1)
         }
         return try (self.endObject(), valueCursors)
     }
@@ -192,7 +182,6 @@ extension SerializedNode {
         }
 
         let character = self.character == nil ? nil : try builder.insert(value: self.character)
-        let word = self.word == nil ? nil : try builder.insert(value: self.word)
         let children: Offset?
         if self.children.isEmpty {
             children = nil
@@ -205,7 +194,6 @@ extension SerializedNode {
         }
         let (myOffset, _) = try builder.insertSerializedNode(
             character: character,
-            word: word,
             children: children
         )
 

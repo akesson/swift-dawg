@@ -1,6 +1,5 @@
 table SerializedNode {
     character : string;
-    word : string;
     children : [int32];
 }
 

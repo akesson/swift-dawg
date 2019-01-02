@@ -12,11 +12,11 @@ class Trie {
     fileprivate let root: TrieNode
     
     init() {
-        root = TrieNode(character: ".")
+        root = TrieNode(character: Char.root)
     }
     
     init(_ serializedNodes: [SerializedNode]) {
-        self.root = serializedNodes.deserialized ?? TrieNode(character: ".")
+        self.root = serializedNodes.deserialized ?? TrieNode(character: Char.root)
     }
     
     convenience init(csvFile: String, separator: Character = "\n") {
@@ -37,9 +37,9 @@ class Trie {
         let characters = word.lowercased()
         
         for character in characters {
-            currentNode = currentNode.add(child: character, word: nil)
+            currentNode = currentNode.add(child: character)
         }
-        currentNode = currentNode.add(child: ".", word: word)
+        currentNode = currentNode.add(child: Char.termination)
     }
     
     func contains(word: String) -> Bool {
@@ -55,7 +55,7 @@ class Trie {
             currentNode = child
         }
         
-        if currentNode.findChild(with: ".") != nil {
+        if currentNode.findChild(with: Char.termination) != nil {
             return currentIndex == characters.count
         }
         return false
@@ -65,7 +65,7 @@ class Trie {
         let substring = word[word.startIndex..<word.endIndex]
         var found = MinValueDictionary()
         for node in root.children {
-            node.search(substring, currentCost: 0, maxCost: maxDistance, &found)
+            node.search(substring, 0, maxCost: maxDistance, [], &found)
         }
         return found
     }

@@ -10,20 +10,18 @@ import Foundation
 
 class TrieNode: CustomStringConvertible, Node {
     let character: Character
-    let word: String?
     var children = [TrieNode]()
     
     init(character: Character, word: String? = nil) {
         self.character = character
-        self.word = word
     }
     
-    func add(child: Character, word: String?) -> TrieNode {
+    func add(child: Character) -> TrieNode {
         
         if let foundChild = findChild(with: child) {
             return foundChild
         } else {
-            let node = TrieNode(character: child, word: word)
+            let node = TrieNode(character: child)
             children.append(node)
             return node
         }
@@ -37,7 +35,7 @@ extension TrieNode {
     /// depth-first serialization of nodes (root is the last one)
     func serialize(to array: inout [SerializedNode]) -> Int32 {
         let childrenAsPositions = children.map({ $0.serialize(to: &array) })
-        array.append(SerializedNode(character, word, childrenAsPositions))
+        array.append(SerializedNode(character, childrenAsPositions))
         return Int32(array.count - 1)
     }
     
@@ -45,7 +43,7 @@ extension TrieNode {
         guard let character = node.character?.first else {
             fatalError("Error in serialization: missing character value")
         }
-        self.init(character: character, word: node.word)
+        self.init(character: character)
         self.children = children
     }
 }
