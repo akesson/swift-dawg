@@ -81,6 +81,11 @@ public class Trie {
         _ = root.serialize(to: &serialised)
         return SerializedNodes(array: serialised)
     }
+    
+    public func writeTo(path: URL) throws {
+        let data = try serialize().makeData()
+        try data.write(to: path)
+    }
 }
 
 extension Trie: Equatable {

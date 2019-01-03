@@ -12,11 +12,15 @@ import dawg
 class ViewController: NSViewController {
 
     var trie: Trie?
+    var statusText = "" {
+        didSet {
+            statusTextField.stringValue = statusText
+            print(statusText)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
@@ -26,7 +30,7 @@ class ViewController: NSViewController {
     }
     @IBOutlet weak var buttonWriteTrie: NSButton!
     @IBOutlet weak var queryField: NSTextField!
-    @IBOutlet weak var statusText: NSTextField!
+    @IBOutlet weak var statusTextField: NSTextField!
     
     @IBAction func buttonLoadCSVTapped(_ sender: Any) {
         
@@ -57,7 +61,7 @@ class ViewController: NSViewController {
         
         dialog.begin { (result) in
             if result == NSApplication.ModalResponse.OK {
-                if let path = dialog.url?.path {
+                if let path = dialog.url {
                     self.writeTrie(path: path)
                 }
             }
@@ -65,8 +69,7 @@ class ViewController: NSViewController {
     }
     
     func loadCSV(path: URL) {
-        print("load \(path)")
-        statusText.stringValue = "load \(path)"
+        statusText = "load \(path)"
         buttonWriteTrie.isEnabled = true
         queryField.isEnabled = true
         
@@ -74,16 +77,29 @@ class ViewController: NSViewController {
             do {
                 trie = try Trie(file: path)
             } catch {
-                print(error)
+                statusText = error.localizedDescription
             }
         }, then: { (seconds) in
-            statusText.stringValue = "processed in \(seconds) seconds"
-            print("processed in \(seconds) seconds")
+            statusText = "csv loaded in \(seconds) seconds"
         })
     }
     
-    func writeTrie(path: String) {
-        print("write \(path)")
+    func writeTrie(path: URL) {
+        statusText = "write \(path)"
+        
+        guard let trie = trie else {
+            statusText = "No trie loaded"
+            return
+        }
+        time({
+            do {
+                try trie.writeTo(path: path)
+            } catch {
+                statusText = error.localizedDescription
+            }
+        }, then: { (seconds) in
+            statusText = "trie written in \(seconds) seconds"
+        })
     }
 }
 

@@ -762,7 +762,7 @@
                     <connections>
                         <outlet property="buttonWriteTrie" destination="ZB6-Ay-NnA" id="Y9k-5v-gNn"/>
                         <outlet property="queryField" destination="3eg-rh-eZR" id="LC4-vI-eTh"/>
-                        <outlet property="statusText" destination="VC4-AG-gJ9" id="Pas-P4-TAe"/>
+                        <outlet property="statusTextField" destination="VC4-AG-gJ9" id="eGX-sp-k17"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
