@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct MinValueDictionary: CustomStringConvertible, Equatable {
+public struct MinValueDictionary: CustomStringConvertible, Equatable {
     
-    var dict = [String: Int]()
-    var count: Int { return dict.count }
-    var description: String {
+    public var dict = [String: Int]()
+    public var count: Int { return dict.count }
+    public var description: String {
         return dict.keys.sorted().map({ "\(dict[$0] ?? -1) \($0)" }).joined(separator: ", ")
     }
     
-    subscript(word: String) -> Int? {
+    public subscript(word: String) -> Int? {
         get {
             return dict[word]
         }

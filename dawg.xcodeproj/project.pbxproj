@@ -28,6 +28,7 @@
 		C3A3591721DDE8CD00E5C755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3591621DDE8CD00E5C755 /* ViewController.swift */; };
 		C3A3591921DDE8CE00E5C755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3A3591821DDE8CE00E5C755 /* Assets.xcassets */; };
 		C3A3591C21DDE8CE00E5C755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A3591A21DDE8CE00E5C755 /* Main.storyboard */; };
+		C3A3592221DE654200E5C755 /* dawg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330530E21B1AC9E00A77CA2 /* dawg.framework */; };
 		C3B78DBB21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
 		C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
 		C3B78DBF21D7E2F000DFECE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBE21D7E2F000DFECE3 /* String.swift */; };
@@ -57,6 +58,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C330533C21B1E17400A77CA2;
 			remoteInfo = "Dawg iOS";
+		};
+		C3A3592321DE678100E5C755 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3FA7E3C21B1A7EB0077C0A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C330530D21B1AC9E00A77CA2;
+			remoteInfo = "Dawg macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -148,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A3592221DE654200E5C755 /* dawg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +383,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3A3592421DE678100E5C755 /* PBXTargetDependency */,
 			);
 			name = DawgConvert;
 			productName = DawgConvert;
@@ -600,6 +610,11 @@
 			isa = PBXTargetDependency;
 			target = C330533C21B1E17400A77CA2 /* Dawg iOS */;
 			targetProxy = C330534721B1E17500A77CA2 /* PBXContainerItemProxy */;
+		};
+		C3A3592421DE678100E5C755 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C330530D21B1AC9E00A77CA2 /* Dawg macOS */;
+			targetProxy = C3A3592321DE678100E5C755 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

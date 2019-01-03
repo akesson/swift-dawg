@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import dawg
 
 class ViewController: NSViewController {
 

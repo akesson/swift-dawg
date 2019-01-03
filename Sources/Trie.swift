@@ -8,24 +8,30 @@
 
 import Foundation
 
-class Trie {
+public class Trie {
     fileprivate let root: TrieNode
     
-    init() {
+    public init() {
         root = TrieNode(character: Char.root)
     }
     
-    init(_ serializedNodes: [SerializedNode]) {
+    public init(_ serializedNodes: [SerializedNode]) {
         self.root = serializedNodes.deserialized ?? TrieNode(character: Char.root)
     }
     
-    convenience init(csvFile: String, separator: Character = "\n") {
+    public convenience init(file: URL, separator: Character = "\n") throws {
+        
+        let text = try String(contentsOf: file)
+        self.init(csvFile: text, separator: separator)
+    }
+    
+    public convenience init(csvFile: String, separator: Character = "\n") {
         self.init()
         let lines = csvFile.split(separator: separator)
         lines.forEach({ self.insert(word: String($0)) })
     }
     
-    convenience init(_ values: String...) {
+    public convenience init(_ values: String...) {
         self.init()
         values.forEach { insert(word: $0) }
     }
@@ -42,7 +48,7 @@ class Trie {
         currentNode = currentNode.add(child: Char.termination)
     }
     
-    func contains(word: String) -> Bool {
+    public func contains(word: String) -> Bool {
         guard !word.isEmpty else { return false }
         var currentNode = root
         let characters = word.lowercased()
@@ -61,7 +67,7 @@ class Trie {
         return false
     }
     
-    func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
+    public func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
         let substring = word[word.startIndex..<word.endIndex]
         var found = MinValueDictionary()
         for node in root.children {
@@ -78,7 +84,7 @@ class Trie {
 }
 
 extension Trie: Equatable {
-    static func == (lhs: Trie, rhs: Trie) -> Bool {
+    public static func == (lhs: Trie, rhs: Trie) -> Bool {
         return lhs.root == rhs.root
     }
 }
