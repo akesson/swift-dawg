@@ -36,14 +36,10 @@ class TrieTests: XCTestCase {
             
             let fileURL = dir.appendingPathComponent("panlex_20181201_csv.public.csv_wordlist.csv")
             
-            let text = try String(contentsOf: fileURL, encoding: .utf8)
-            
-            let trie = Trie(csvFile: text)
-            let serialized = trie.serialize()
-            let data = try serialized.makeData()
+            let trie = try Trie(csvFile: fileURL)
             
             let outURL = dir.appendingPathComponent("wordlist.trie")
-            try data.write(to: outURL)
+            try trie.writeTo(path: outURL)
             
         } catch {
             XCTFail(error.localizedDescription)
@@ -59,13 +55,7 @@ class TrieTests: XCTestCase {
             
             let fileURL = dir.appendingPathComponent("wordlist.trie")
             
-            let data = try Data(contentsOf: fileURL)
-            guard let serialized = SerializedNodes.from(data: data) else {
-                XCTFail("Could not deserialize")
-                return
-            }
-            
-            let trie = Trie(serialized.array)
+            let trie = try Trie(trieFile: fileURL)
             let vals = trie.approximateMatches(for: "bus", maxDistance: 1)
             XCTAssertEqual(vals.count, 24)
 

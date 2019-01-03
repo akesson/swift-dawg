@@ -8,6 +8,8 @@
 
 import Foundation
 
+public enum TrieError: Error { case deserializationError }
+
 public class Trie {
     fileprivate let root: TrieNode
     
@@ -19,16 +21,23 @@ public class Trie {
         self.root = serializedNodes.deserialized ?? TrieNode(character: Char.root)
     }
     
-    public convenience init(file: URL, separator: Character = "\n") throws {
-        
-        let text = try String(contentsOf: file)
+    public convenience init(csvFile: URL, separator: Character = "\n") throws {
+        let text = try String(contentsOf: csvFile, encoding: .utf8)
         self.init(csvFile: text, separator: separator)
+    }
+
+    public convenience init(trieFile: URL) throws {
+        let data = try Data(contentsOf: trieFile)
+        guard let serialized = SerializedNodes.from(data: data) else {
+            throw TrieError.deserializationError
+        }
+        self.init(serialized.array)
     }
     
     public convenience init(csvFile: String, separator: Character = "\n") {
         self.init()
         let lines = csvFile.split(separator: separator)
-        lines.forEach({ self.insert(word: String($0)) })
+        lines.forEach({ self.insert(word: $0) })
     }
     
     public convenience init(_ values: String...) {
@@ -36,7 +45,7 @@ public class Trie {
         values.forEach { insert(word: $0) }
     }
     
-    func insert(word: String) {
+    func insert<T: StringProtocol>(word: T) {
         guard !word.isEmpty else { return }
         
         var currentNode = root

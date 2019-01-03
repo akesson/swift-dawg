@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C301CFBD21DE73490089F770 /* NSOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301CFBC21DE73490089F770 /* NSOpenPanel.swift */; };
 		C304C76321D79EB30090B389 /* FlatBuffersSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C304C76221D79EB30090B389 /* FlatBuffersSwift.framework */; };
 		C304C76521D79EC30090B389 /* FlatBuffersSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C304C76421D79EC30090B389 /* FlatBuffersSwift.framework */; };
 		C304C76B21D7A0C50090B389 /* FlatBuffersSwift.framework.dSYM in Carthage */ = {isa = PBXBuildFile; fileRef = C304C76A21D7A0C50090B389 /* FlatBuffersSwift.framework.dSYM */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C301CFBC21DE73490089F770 /* NSOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOpenPanel.swift; sourceTree = "<group>"; };
 		C304C76221D79EB30090B389 /* FlatBuffersSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlatBuffersSwift.framework; path = Carthage/Build/Mac/FlatBuffersSwift.framework; sourceTree = "<group>"; };
 		C304C76421D79EC30090B389 /* FlatBuffersSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlatBuffersSwift.framework; path = Carthage/Build/iOS/FlatBuffersSwift.framework; sourceTree = "<group>"; };
 		C304C76A21D7A0C50090B389 /* FlatBuffersSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = FlatBuffersSwift.framework.dSYM; path = Carthage/Build/Mac/FlatBuffersSwift.framework.dSYM; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				C3A3591A21DDE8CE00E5C755 /* Main.storyboard */,
 				C3A3591D21DDE8CE00E5C755 /* Info.plist */,
 				C3A3591E21DDE8CE00E5C755 /* DawgConvert.entitlements */,
+				C301CFBC21DE73490089F770 /* NSOpenPanel.swift */,
 			);
 			path = DawgConvert;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3A3591721DDE8CD00E5C755 /* ViewController.swift in Sources */,
+				C301CFBD21DE73490089F770 /* NSOpenPanel.swift in Sources */,
 				C3A3591521DDE8CD00E5C755 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

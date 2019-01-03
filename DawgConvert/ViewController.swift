@@ -11,7 +11,13 @@ import dawg
 
 class ViewController: NSViewController {
 
-    var trie: Trie?
+    var trie = Trie() {
+        didSet {
+            buttonWriteTrie.isEnabled = true
+            queryField.isEnabled = true
+        }
+    }
+    
     var statusText = "" {
         didSet {
             statusTextField.stringValue = statusText
@@ -28,25 +34,26 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
     @IBOutlet weak var buttonWriteTrie: NSButton!
     @IBOutlet weak var queryField: NSTextField!
     @IBOutlet weak var statusTextField: NSTextField!
     
+    @IBAction func buttonReadTrieTapped(_ sender: Any) {
+        let dialog = NSOpenPanel(fileEnding: "trie")
+        dialog.begin { (response) in
+            if response == NSApplication.ModalResponse.OK, let path = dialog.url {
+                self.loadTrie(path: path)
+            }
+        }
+    }
+    
     @IBAction func buttonLoadCSVTapped(_ sender: Any) {
         
-        let dialog = NSOpenPanel()
-        
-        dialog.title = "Choose a .csv file"
-        dialog.showsResizeIndicator = true
-        dialog.showsHiddenFiles = false
-        dialog.canChooseDirectories = true
-        dialog.canCreateDirectories = false
-        dialog.allowsMultipleSelection = false
-        dialog.allowedFileTypes = ["csv"]
-        
-        if dialog.runModal() == NSApplication.ModalResponse.OK {
-            if let path = dialog.url {
-                loadCSV(path: path)
+        let dialog = NSOpenPanel(fileEnding: "csv")
+        dialog.begin { (response) in
+            if response == NSApplication.ModalResponse.OK, let path = dialog.url {
+                self.loadCSV(path: path)
             }
         }
     }
@@ -57,7 +64,7 @@ class ViewController: NSViewController {
         
         dialog.title = "Destination file"
         dialog.showsResizeIndicator = true
-        dialog.allowedFileTypes = ["flex"]
+        dialog.allowedFileTypes = ["trie"]
         
         dialog.begin { (result) in
             if result == NSApplication.ModalResponse.OK {
@@ -69,28 +76,35 @@ class ViewController: NSViewController {
     }
     
     func loadCSV(path: URL) {
-        statusText = "load \(path)"
-        buttonWriteTrie.isEnabled = true
-        queryField.isEnabled = true
+        statusText = "read \(path)"
         
         time({
             do {
-                trie = try Trie(file: path)
+                trie = try Trie(csvFile: path)
             } catch {
                 statusText = error.localizedDescription
             }
         }, then: { (seconds) in
-            statusText = "csv loaded in \(seconds) seconds"
+            statusText = "csv read in \(seconds) seconds"
+        })
+    }
+    
+    func loadTrie(path: URL) {
+        statusText = "read \(path)"
+        time({
+            do {
+                trie = try Trie(trieFile: path)
+            } catch {
+                statusText = error.localizedDescription
+            }
+        }, then: { (seconds) in
+            statusText = "trie read in \(seconds) seconds"
         })
     }
     
     func writeTrie(path: URL) {
         statusText = "write \(path)"
         
-        guard let trie = trie else {
-            statusText = "No trie loaded"
-            return
-        }
         time({
             do {
                 try trie.writeTo(path: path)

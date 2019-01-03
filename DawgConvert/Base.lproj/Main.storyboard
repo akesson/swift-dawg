@@ -710,23 +710,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-cl-wI9">
-                                <rect key="frame" x="14" y="299" width="124" height="32"/>
-                                <buttonCell key="cell" type="push" title="Load CSV File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nvE-dB-sGX">
+                                <rect key="frame" x="14" y="299" width="125" height="32"/>
+                                <buttonCell key="cell" type="push" title="Read CSV File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nvE-dB-sGX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="buttonLoadCSVTapped:" target="XfG-lQ-9wD" id="CgH-ww-YZf"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZB6-Ay-NnA">
-                                <rect key="frame" x="151" y="299" width="121" height="32"/>
-                                <buttonCell key="cell" type="push" title="Write trie File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D0k-9e-ULU">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="buttonWriteTrieTapped:" target="XfG-lQ-9wD" id="91r-ub-eBC"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-rh-eZR">
@@ -745,6 +735,27 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-Rq-XnV">
+                                <rect key="frame" x="156" y="299" width="119" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Read trie File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mzR-m7-A7b">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonReadTrieTapped:" target="XfG-lQ-9wD" id="a1N-Uf-08U"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZB6-Ay-NnA">
+                                <rect key="frame" x="301" y="299" width="121" height="32"/>
+                                <buttonCell key="cell" type="push" title="Write trie File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D0k-9e-ULU">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonWriteTrieTapped:" target="XfG-lQ-9wD" id="91r-ub-eBC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="3eg-rh-eZR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="6Tb-g5-CZG"/>
@@ -752,7 +763,6 @@
                             <constraint firstItem="gR1-cl-wI9" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="WAd-H9-ibV"/>
                             <constraint firstItem="ZB6-Ay-NnA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="YRj-Ns-0mI"/>
                             <constraint firstItem="3eg-rh-eZR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="80" id="bDZ-hp-VlY"/>
-                            <constraint firstItem="ZB6-Ay-NnA" firstAttribute="leading" secondItem="gR1-cl-wI9" secondAttribute="trailing" constant="25" id="eCv-f6-05g"/>
                             <constraint firstItem="VC4-AG-gJ9" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="22" id="ev9-BH-UOF"/>
                             <constraint firstItem="gR1-cl-wI9" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="s4h-1S-ddR"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZB6-Ay-NnA" secondAttribute="trailing" constant="20" symbolic="YES" id="xST-g5-Myc"/>
