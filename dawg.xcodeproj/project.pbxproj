@@ -24,6 +24,10 @@
 		C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
+		C3A3591521DDE8CD00E5C755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3591421DDE8CD00E5C755 /* AppDelegate.swift */; };
+		C3A3591721DDE8CD00E5C755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3591621DDE8CD00E5C755 /* ViewController.swift */; };
+		C3A3591921DDE8CE00E5C755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3A3591821DDE8CE00E5C755 /* Assets.xcassets */; };
+		C3A3591C21DDE8CE00E5C755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A3591A21DDE8CE00E5C755 /* Main.storyboard */; };
 		C3B78DBB21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
 		C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */; };
 		C3B78DBF21D7E2F000DFECE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B78DBE21D7E2F000DFECE3 /* String.swift */; };
@@ -89,6 +93,13 @@
 		C330536121B290CB00A77CA2 /* TrieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieTests.swift; sourceTree = "<group>"; };
 		C330536521B3E5A100A77CA2 /* TrieNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
 		C330536821B41F9800A77CA2 /* MinValueDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinValueDictionary.swift; sourceTree = "<group>"; };
+		C3A3591221DDE8CD00E5C755 /* DawgConvert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DawgConvert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3A3591421DDE8CD00E5C755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C3A3591621DDE8CD00E5C755 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3A3591821DDE8CE00E5C755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3A3591B21DDE8CE00E5C755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3A3591D21DDE8CE00E5C755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3A3591E21DDE8CE00E5C755 /* DawgConvert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DawgConvert.entitlements; sourceTree = "<group>"; };
 		C3B78DB421D7DC5200DFECE3 /* Generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Generate.sh; sourceTree = "<group>"; };
 		C3B78DB521D7DC5200DFECE3 /* Node.fbs */ = {isa = PBXFileReference; lastKnownFileType = text; path = Node.fbs; sourceTree = "<group>"; };
 		C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializedNodes.swift; sourceTree = "<group>"; };
@@ -133,6 +144,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3A3590F21DDE8CD00E5C755 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -152,6 +170,19 @@
 				C304C76A21D7A0C50090B389 /* FlatBuffersSwift.framework.dSYM */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C3A3591321DDE8CD00E5C755 /* DawgConvert */ = {
+			isa = PBXGroup;
+			children = (
+				C3A3591421DDE8CD00E5C755 /* AppDelegate.swift */,
+				C3A3591621DDE8CD00E5C755 /* ViewController.swift */,
+				C3A3591821DDE8CE00E5C755 /* Assets.xcassets */,
+				C3A3591A21DDE8CE00E5C755 /* Main.storyboard */,
+				C3A3591D21DDE8CE00E5C755 /* Info.plist */,
+				C3A3591E21DDE8CE00E5C755 /* DawgConvert.entitlements */,
+			);
+			path = DawgConvert;
 			sourceTree = "<group>";
 		};
 		C3B78DB321D7DACB00DFECE3 /* Generate */ = {
@@ -188,6 +219,7 @@
 				C304C76E21D7A1950090B389 /* Resources */,
 				C3FA7E4721B1A7EB0077C0A2 /* Sources */,
 				C3FA7E5221B1A7EB0077C0A2 /* Tests */,
+				C3A3591321DDE8CD00E5C755 /* DawgConvert */,
 				C3FA7E4621B1A7EB0077C0A2 /* Products */,
 				C304C76121D79EB20090B389 /* Frameworks */,
 			);
@@ -200,6 +232,7 @@
 				C330532C21B1DFC600A77CA2 /* DawgTests macOS.xctest */,
 				C330533D21B1E17400A77CA2 /* dawg.framework */,
 				C330534521B1E17500A77CA2 /* Dawg iOSTests.xctest */,
+				C3A3591221DDE8CD00E5C755 /* DawgConvert.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,6 +363,23 @@
 			productReference = C330534521B1E17500A77CA2 /* Dawg iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C3A3591121DDE8CD00E5C755 /* DawgConvert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3A3592121DDE8CE00E5C755 /* Build configuration list for PBXNativeTarget "DawgConvert" */;
+			buildPhases = (
+				C3A3590E21DDE8CD00E5C755 /* Sources */,
+				C3A3590F21DDE8CD00E5C755 /* Frameworks */,
+				C3A3591021DDE8CD00E5C755 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DawgConvert;
+			productName = DawgConvert;
+			productReference = C3A3591221DDE8CD00E5C755 /* DawgConvert.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -352,6 +402,9 @@
 					C330534421B1E17500A77CA2 = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					C3A3591121DDE8CD00E5C755 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = C3FA7E3F21B1A7EB0077C0A2 /* Build configuration list for PBXProject "dawg" */;
@@ -360,6 +413,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = C3FA7E3B21B1A7EB0077C0A2;
 			productRefGroup = C3FA7E4621B1A7EB0077C0A2 /* Products */;
@@ -370,6 +424,7 @@
 				C330532B21B1DFC600A77CA2 /* DawgTests macOS */,
 				C330533C21B1E17400A77CA2 /* Dawg iOS */,
 				C330534421B1E17500A77CA2 /* Dawg iOSTests */,
+				C3A3591121DDE8CD00E5C755 /* DawgConvert */,
 			);
 		};
 /* End PBXProject section */
@@ -400,6 +455,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3A3591021DDE8CD00E5C755 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3A3591921DDE8CE00E5C755 /* Assets.xcassets in Resources */,
+				C3A3591C21DDE8CE00E5C755 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +579,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3A3590E21DDE8CD00E5C755 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3A3591721DDE8CD00E5C755 /* ViewController.swift in Sources */,
+				C3A3591521DDE8CD00E5C755 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -529,6 +602,17 @@
 			targetProxy = C330534721B1E17500A77CA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3A3591A21DDE8CE00E5C755 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3A3591B21DDE8CE00E5C755 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C330532021B1AC9E00A77CA2 /* Debug */ = {
@@ -725,6 +809,46 @@
 			};
 			name = Release;
 		};
+		C3A3591F21DDE8CE00E5C755 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DawgConvert/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = human.solutions.DawgConvert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		C3A3592021DDE8CE00E5C755 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DawgConvert/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = human.solutions.DawgConvert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		C3FA7E5721B1A7EB0077C0A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -882,6 +1006,15 @@
 			buildConfigurations = (
 				C330535221B1E17500A77CA2 /* Debug */,
 				C330535321B1E17500A77CA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3A3592121DDE8CE00E5C755 /* Build configuration list for PBXNativeTarget "DawgConvert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3A3591F21DDE8CE00E5C755 /* Debug */,
+				C3A3592021DDE8CE00E5C755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
