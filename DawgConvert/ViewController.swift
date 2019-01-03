@@ -11,6 +11,8 @@ import dawg
 
 class ViewController: NSViewController {
 
+    var trie: Trie?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +26,7 @@ class ViewController: NSViewController {
     }
     @IBOutlet weak var buttonWriteTrie: NSButton!
     @IBOutlet weak var queryField: NSTextField!
-    @IBOutlet weak var suggestionsTextView: NSScrollView!
+    @IBOutlet weak var statusText: NSTextField!
     
     @IBAction func buttonLoadCSVTapped(_ sender: Any) {
         
@@ -39,8 +41,8 @@ class ViewController: NSViewController {
         dialog.allowedFileTypes = ["csv"]
         
         if dialog.runModal() == NSApplication.ModalResponse.OK {
-            if let result = dialog.url?.path {
-                loadCSV(path: result)
+            if let path = dialog.url {
+                loadCSV(path: path)
             }
         }
     }
@@ -62,10 +64,22 @@ class ViewController: NSViewController {
         }
     }
     
-    func loadCSV(path: String) {
+    func loadCSV(path: URL) {
         print("load \(path)")
+        statusText.stringValue = "load \(path)"
         buttonWriteTrie.isEnabled = true
         queryField.isEnabled = true
+        
+        time({
+            do {
+                trie = try Trie(file: path)
+            } catch {
+                print(error)
+            }
+        }, then: { (seconds) in
+            statusText.stringValue = "processed in \(seconds) seconds"
+            print("processed in \(seconds) seconds")
+        })
     }
     
     func writeTrie(path: String) {
@@ -73,3 +87,10 @@ class ViewController: NSViewController {
     }
 }
 
+func time(_ block: () throws -> Void, then onCompletion: (_ seconds: Double) -> Void) rethrows {
+    let start = Date()
+    try block()
+    let stop = Date()
+    let secs = stop.timeIntervalSince(start)
+    onCompletion(secs)
+}

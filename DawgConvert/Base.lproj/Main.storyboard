@@ -730,10 +730,18 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-rh-eZR">
-                                <rect key="frame" x="20" y="262" width="440" height="22"/>
+                                <rect key="frame" x="20" y="245" width="440" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Query" drawsBackground="YES" id="cNR-GJ-wwe">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VC4-AG-gJ9">
+                                <rect key="frame" x="20" y="278" width="4" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" id="LPD-GO-vVP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -743,15 +751,18 @@
                             <constraint firstAttribute="trailing" secondItem="3eg-rh-eZR" secondAttribute="trailing" constant="20" id="GK4-8i-3rf"/>
                             <constraint firstItem="gR1-cl-wI9" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="WAd-H9-ibV"/>
                             <constraint firstItem="ZB6-Ay-NnA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="YRj-Ns-0mI"/>
-                            <constraint firstItem="3eg-rh-eZR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="63" id="bDZ-hp-VlY"/>
+                            <constraint firstItem="3eg-rh-eZR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="80" id="bDZ-hp-VlY"/>
                             <constraint firstItem="ZB6-Ay-NnA" firstAttribute="leading" secondItem="gR1-cl-wI9" secondAttribute="trailing" constant="25" id="eCv-f6-05g"/>
+                            <constraint firstItem="VC4-AG-gJ9" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="22" id="ev9-BH-UOF"/>
                             <constraint firstItem="gR1-cl-wI9" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="s4h-1S-ddR"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZB6-Ay-NnA" secondAttribute="trailing" constant="20" symbolic="YES" id="xST-g5-Myc"/>
+                            <constraint firstItem="VC4-AG-gJ9" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="52" id="z8c-hU-lrp"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonWriteTrie" destination="ZB6-Ay-NnA" id="Y9k-5v-gNn"/>
                         <outlet property="queryField" destination="3eg-rh-eZR" id="LC4-vI-eTh"/>
+                        <outlet property="statusText" destination="VC4-AG-gJ9" id="Pas-P4-TAe"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
