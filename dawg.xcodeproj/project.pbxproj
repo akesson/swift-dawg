@@ -25,6 +25,8 @@
 		C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
+		C39372AF21DF3C340039C1EC /* FlatBuffersSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C304C76C21D7A16A0090B389 /* FlatBuffersSwift.framework */; };
+		C39372B921DF403B0039C1EC /* FlatBuffersSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C304C76421D79EC30090B389 /* FlatBuffersSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3A3591521DDE8CD00E5C755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3591421DDE8CD00E5C755 /* AppDelegate.swift */; };
 		C3A3591721DDE8CD00E5C755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3591621DDE8CD00E5C755 /* ViewController.swift */; };
 		C3A3591921DDE8CE00E5C755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3A3591821DDE8CE00E5C755 /* Assets.xcassets */; };
@@ -80,6 +82,16 @@
 				C304C76B21D7A0C50090B389 /* FlatBuffersSwift.framework.dSYM in Carthage */,
 			);
 			name = Carthage;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C39372B621DF40020039C1EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C39372B921DF403B0039C1EC /* FlatBuffersSwift.framework in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -151,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C330534621B1E17500A77CA2 /* dawg.framework in Frameworks */,
+				C39372AF21DF3C340039C1EC /* FlatBuffersSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +377,7 @@
 				C330534121B1E17500A77CA2 /* Sources */,
 				C330534221B1E17500A77CA2 /* Frameworks */,
 				C330534321B1E17500A77CA2 /* Resources */,
+				C39372B621DF40020039C1EC /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -797,6 +811,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "Tests/Info-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -815,6 +833,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "Tests/Info-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
