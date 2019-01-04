@@ -27,6 +27,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        queryField.delegate = self
     }
 
     override var representedObject: Any? {
@@ -38,6 +39,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var buttonWriteTrie: NSButton!
     @IBOutlet weak var queryField: NSTextField!
     @IBOutlet weak var statusTextField: NSTextField!
+    @IBOutlet var proposalsText: NSTextView!
     
     @IBAction func buttonReadTrieTapped(_ sender: Any) {
         let dialog = NSOpenPanel(fileEnding: "trie")
@@ -123,4 +125,35 @@ func time(_ block: () throws -> Void, then onCompletion: (_ seconds: Double) -> 
     let stop = Date()
     let secs = stop.timeIntervalSince(start)
     onCompletion(secs)
+}
+
+extension ViewController: NSTextFieldDelegate {
+    func controlTextDidChange(_ obj: Notification) {
+        let searchString = queryField.stringValue
+        let maxDistance = distanceFromString(length: searchString.count)
+        var matchCount = 0
+        time({
+            let matches = trie.approximateMatches(for: searchString, maxDistance: maxDistance)
+            matchCount = matches.count
+            
+            var proposals = [String]()
+            for distance in 1..<(maxDistance + 1) {
+                let distanceProposals = matches.dict.filter({ $0.value == distance }).map({ $0.key })
+                proposals.append(contentsOf: distanceProposals)
+            }
+            proposalsText.string = proposals.joined(separator: "\n")
+        }, then: { (seconds) in
+            statusText = "searched (maxDistance: \(maxDistance), matches: \(matchCount)) in \(seconds)"
+        })
+    }
+    
+    func distanceFromString(length: Int) -> Int {
+        if length <= 2 {
+            return 0
+        } else if length <= 6 {
+            return 1
+        } else {
+            return 2
+        }
+    }
 }
