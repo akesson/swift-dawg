@@ -1,7 +1,6 @@
 #!/bin/sh
 
 #  Generate.sh
-#  Polyglot
 #
 #  Created by Henrik Akesson on 27/08/2018.
 #  Copyright © 2018 Henrik Akesson. All rights reserved.
@@ -18,4 +17,10 @@ else
     chmod u+x ./fbsCG
 fi
 
-./fbsCG Node.fbs ../Sources/Generated/SerializedNodes.swift
+
+for fbsFile in *.fbs; do
+    swiftFile="${fbsFile/.fbs/.swift}"
+    echo "Converting $fbsFile to $swiftFile"
+	./fbsCG $fbsFile ../Sources/Generated/$swiftFile
+done
+

@@ -123,7 +123,7 @@
 		C3A3591D21DDE8CE00E5C755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3A3591E21DDE8CE00E5C755 /* DawgConvert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DawgConvert.entitlements; sourceTree = "<group>"; };
 		C3B78DB421D7DC5200DFECE3 /* Generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Generate.sh; sourceTree = "<group>"; };
-		C3B78DB521D7DC5200DFECE3 /* Node.fbs */ = {isa = PBXFileReference; lastKnownFileType = text; path = Node.fbs; sourceTree = "<group>"; };
+		C3B78DB521D7DC5200DFECE3 /* SerializedNodes.fbs */ = {isa = PBXFileReference; lastKnownFileType = text; path = SerializedNodes.fbs; sourceTree = "<group>"; };
 		C3B78DBA21D7E0B300DFECE3 /* SerializedNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializedNodes.swift; sourceTree = "<group>"; };
 		C3B78DBE21D7E2F000DFECE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C3B78DC421DC05C200DFECE3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B78DB421D7DC5200DFECE3 /* Generate.sh */,
-				C3B78DB521D7DC5200DFECE3 /* Node.fbs */,
+				C3B78DB521D7DC5200DFECE3 /* SerializedNodes.fbs */,
 			);
 			path = Generate;
 			sourceTree = "<group>";
@@ -317,9 +317,9 @@
 			buildPhases = (
 				C330530921B1AC9E00A77CA2 /* Headers */,
 				C330530A21B1AC9E00A77CA2 /* Sources */,
+				C330535F21B28A3B00A77CA2 /* SwiftLint */,
 				C330530B21B1AC9E00A77CA2 /* Frameworks */,
 				C330530C21B1AC9E00A77CA2 /* Resources */,
-				C330535F21B28A3B00A77CA2 /* SwiftLint */,
 				C304C76621D79F340090B389 /* Carthage */,
 			);
 			buildRules = (
@@ -355,9 +355,9 @@
 			buildPhases = (
 				C330533821B1E17400A77CA2 /* Headers */,
 				C330533921B1E17400A77CA2 /* Sources */,
+				C330535E21B28A1200A77CA2 /* SwiftLint */,
 				C330533A21B1E17400A77CA2 /* Frameworks */,
 				C330533B21B1E17400A77CA2 /* Resources */,
-				C330535E21B28A1200A77CA2 /* SwiftLint */,
 				C304C76921D79FA50090B389 /* Carthage */,
 			);
 			buildRules = (
