@@ -137,7 +137,7 @@ extension ViewController: NSTextFieldDelegate {
             matchCount = matches.count
             
             var proposals = [String]()
-            for distance in 1..<(maxDistance + 1) {
+            for distance in 0..<(maxDistance + 1) {
                 let distanceProposals = matches.dict.filter({ $0.value == distance }).map({ $0.key })
                 proposals.append(contentsOf: distanceProposals)
             }
@@ -148,12 +148,14 @@ extension ViewController: NSTextFieldDelegate {
     }
     
     func distanceFromString(length: Int) -> Int {
-        if length <= 2 {
+        if length <= 1 {
             return 0
-        } else if length <= 6 {
+        } else if length <= 5 {
             return 1
-        } else {
+        } else if length <= 7 {
             return 2
+        } else {
+            return 3
         }
     }
 }

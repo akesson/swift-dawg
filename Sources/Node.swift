@@ -8,6 +8,8 @@
 
 import Foundation
 
+let debug = false
+
 protocol Node: Equatable {
     var character: Character { get }
     var children: [TrieNode] { get }
@@ -46,6 +48,9 @@ extension Node {
         if totalCost <= max {
             let word = String(path)
             found[word] = totalCost
+            if debug { print("\(cost) +: "  + String(path)) }
+        } else {
+            if debug { print("\(cost) #: "  + String(path)) }
         }
     }
     
@@ -86,6 +91,7 @@ extension Node {
                 _ found: inout MinValueDictionary) {
         
         if cost > max {
+            if debug { print("\(cost) -: "  + String(path.appending(character))) }
             return
         } else if isTerminating {
             searchTerminating(searched, cost, maxCost: max, path, &found)
