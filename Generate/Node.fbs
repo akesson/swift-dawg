@@ -1,10 +1,6 @@
-table SerializedNode {
-    character : string;
-    children : [int32];
-}
-
 table SerializedNodes {
-    array : [SerializedNode];
+    childCount : [int16];
+    scalars : [uint32];
 }
 
 root_type SerializedNodes;

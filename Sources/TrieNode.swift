@@ -10,10 +10,11 @@ import Foundation
 
 class TrieNode: CustomStringConvertible, Node {
     let character: Character
-    var children = [TrieNode]()
+    var children: [TrieNode]
     
-    init(character: Character, word: String? = nil) {
+    init(_ character: Character, _ children: [TrieNode]? = nil) {
         self.character = character
+        self.children = children ?? [TrieNode]()
     }
     
     func add(child: Character) -> TrieNode {
@@ -21,7 +22,7 @@ class TrieNode: CustomStringConvertible, Node {
         if let foundChild = findChild(with: child) {
             return foundChild
         } else {
-            let node = TrieNode(character: child)
+            let node = TrieNode(child)
             children.append(node)
             return node
         }
@@ -33,17 +34,17 @@ class TrieNode: CustomStringConvertible, Node {
 extension TrieNode {
     
     /// depth-first serialization of nodes (root is the last one)
-    func serialize(to array: inout [SerializedNode]) -> Int32 {
-        let childrenAsPositions = children.map({ $0.serialize(to: &array) })
-        array.append(SerializedNode(character, childrenAsPositions))
-        return Int32(array.count - 1)
-    }
-    
-    convenience init(_ node: SerializedNode, _ children: [TrieNode]) {
-        guard let character = node.character?.first else {
-            fatalError("Error in serialization: missing character value")
+    func serialize(to serialized: SerializedNodes) -> UInt32 {
+        
+        let childrenAsPositions = children.map({ $0.serialize(to: serialized) })
+        let scalars = character.asScalars
+        guard scalars.count == 1 else {
+            fatalError("Can only handle one")
         }
-        self.init(character: character)
-        self.children = children
+        serialized.scalars.append(contentsOf: scalars)
+        
+        serialized.childCount.append(Int16(childrenAsPositions.count))
+        serialized.scalars.append(contentsOf: childrenAsPositions)
+        return UInt32(serialized.childCount.count - 1)
     }
 }

@@ -11,6 +11,6 @@ import Foundation
 extension Character {
     
     var asScalars: [UInt32] {
-        return self.unicodeScalars.map( { $0.value } )
+        return self.unicodeScalars.map({ $0.value })
     }
 }

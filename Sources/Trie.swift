@@ -14,11 +14,7 @@ public class Trie {
     fileprivate let root: TrieNode
     
     public init() {
-        root = TrieNode(character: Char.root)
-    }
-    
-    public init(_ serializedNodes: [SerializedNode]) {
-        self.root = serializedNodes.deserialized ?? TrieNode(character: Char.root)
+        root = TrieNode(Char.root)
     }
     
     public convenience init(csvFile: URL, separator: Character = "\n") throws {
@@ -31,7 +27,27 @@ public class Trie {
         guard let serialized = SerializedNodes.from(data: data) else {
             throw TrieError.deserializationError
         }
-        self.init(serialized.array)
+        self.init(serialized)
+    }
+    
+    public init(_ serialized: SerializedNodes) {
+        var deserialized = [TrieNode]()
+
+        var scalars = serialized.scalars.makeIterator()
+        
+        for childCount in serialized.childCount {
+            
+            var children = [TrieNode]()
+            let char = Character(UnicodeScalar(scalars.next()!)!)
+            
+            for _ in 0..<childCount {
+                let childPos = Int(scalars.next()!)
+                children.append(deserialized[childPos])
+            }
+            
+            deserialized.append(TrieNode(char, children))
+        }
+        self.root = deserialized.last ?? TrieNode(Char.root)
     }
     
     public convenience init(csvFile: String, separator: Character = "\n") {
@@ -86,9 +102,9 @@ public class Trie {
     }
     
     func serialize() -> SerializedNodes {
-        var serialised = [SerializedNode]()
-        _ = root.serialize(to: &serialised)
-        return SerializedNodes(array: serialised)
+        let serialised = SerializedNodes()
+        _ = root.serialize(to: serialised)
+        return serialised
     }
     
     public func writeTo(path: URL) throws {
