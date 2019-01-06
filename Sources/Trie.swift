@@ -58,11 +58,28 @@ public class Trie {
         self.init()
         let lines = csvFile.split(separator: separator).map({ $0.lowercased() })
         lines.forEach({ self.insert(word: $0) })
+//        try verifyIngestion(lines)
     }
     
     public convenience init(_ values: String...) {
         self.init()
         values.forEach { insert(word: $0) }
+    }
+    
+    private func verifyIngestion<T: StringProtocol>(_ lines: [T]) throws {
+        var foundWords = self.listAllWords()
+        //remove duplicates
+        var addedWords = Array(Set(lines))
+        guard foundWords.count == addedWords.count else {
+            throw TrieError.ingestionCountMismatch(added: addedWords.count, found: foundWords.count)
+        }
+        addedWords.sort()
+        foundWords.sort()
+        for index in 0..<addedWords.count where foundWords[index] != addedWords[index] {
+            throw TrieError.wordMismatch(index: index,
+                                         added: String(addedWords[index]),
+                                         found: String(foundWords[index]))
+        }
     }
     
     func insert<T: StringProtocol>(word: T) {
