@@ -8,7 +8,11 @@
 
 import Foundation
 
-public enum TrieError: Error { case deserializationError }
+public enum TrieError: Error {
+    case deserializationError
+    case ingestionCountMismatch(added: Int, found: Int)
+    case wordMismatch(index: Int, added: String, found: String)
+}
 
 public class Trie {
     fileprivate let root: TrieNode
@@ -19,7 +23,7 @@ public class Trie {
     
     public convenience init(csvFile: URL, separator: Character = "\n") throws {
         let text = try String(contentsOf: csvFile, encoding: .utf8)
-        self.init(csvFile: text, separator: separator)
+        try self.init(csvFile: text, separator: separator)
     }
 
     public convenience init(trieFile: URL) throws {
@@ -50,9 +54,9 @@ public class Trie {
         self.root = deserialized.last ?? TrieNode(Char.root)
     }
     
-    public convenience init(csvFile: String, separator: Character = "\n") {
+    public convenience init(csvFile: String, separator: Character = "\n") throws {
         self.init()
-        let lines = csvFile.split(separator: separator)
+        let lines = csvFile.split(separator: separator).map({ $0.lowercased() })
         lines.forEach({ self.insert(word: $0) })
     }
     
@@ -63,14 +67,7 @@ public class Trie {
     
     func insert<T: StringProtocol>(word: T) {
         guard !word.isEmpty else { return }
-        
-        var currentNode = root
-        let characters = word.lowercased()
-        
-        for character in characters {
-            currentNode = currentNode.add(child: character)
-        }
-        currentNode = currentNode.add(child: Char.termination)
+        root.insert(word, [Character]())
     }
     
     public func contains(word: String) -> Bool {

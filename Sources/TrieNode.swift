@@ -27,6 +27,25 @@ class TrieNode: CustomStringConvertible, Node {
             return node
         }
     }
+    
+    func insert<T: StringProtocol>(_ string: T, _ path: [Character]) {
+        if let char = string.first {
+            let node = childNodeFor(char)
+            node.insert(string.dropFirst(), path.appending(char))
+        } else {
+            _ = childNodeFor(Char.termination)
+        }
+    }
+    
+    func childNodeFor(_ char: Character) -> TrieNode {
+        if let node = findChild(with: char) {
+            return node
+        } else {
+            let node = TrieNode(char)
+            children.append(node)
+            return node
+        }
+    }
 }
 
 // MARK: - Serialization and deserialisation
