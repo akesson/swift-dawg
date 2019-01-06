@@ -11,6 +11,8 @@ import dawg
 
 class ViewController: NSViewController {
 
+    let processingQueue = DispatchQueue(label: "processing")
+    
     var trie = Trie() {
         didSet {
             buttonWriteTrie.isEnabled = true
@@ -45,7 +47,9 @@ class ViewController: NSViewController {
         let dialog = NSOpenPanel(fileEnding: "trie")
         dialog.begin { (response) in
             if response == NSApplication.ModalResponse.OK, let path = dialog.url {
-                self.loadTrie(path: path)
+                self.processingQueue.async {
+                    self.loadTrie(path: path)
+                }
             }
         }
     }
@@ -55,7 +59,9 @@ class ViewController: NSViewController {
         let dialog = NSOpenPanel(fileEnding: "csv")
         dialog.begin { (response) in
             if response == NSApplication.ModalResponse.OK, let path = dialog.url {
-                self.loadCSV(path: path)
+                self.processingQueue.async {
+                    self.loadCSV(path: path)
+                }
             }
         }
     }
@@ -71,7 +77,9 @@ class ViewController: NSViewController {
         dialog.begin { (result) in
             if result == NSApplication.ModalResponse.OK {
                 if let path = dialog.url {
-                    self.writeTrie(path: path)
+                    self.processingQueue.async {
+                        self.writeTrie(path: path)
+                    }
                 }
             }
         }
