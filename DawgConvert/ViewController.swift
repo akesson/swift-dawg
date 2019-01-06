@@ -15,15 +15,19 @@ class ViewController: NSViewController {
     
     var trie = Trie() {
         didSet {
-            buttonWriteTrie.isEnabled = true
-            queryField.isEnabled = true
+            DispatchQueue.main.async {
+                self.buttonWriteTrie.isEnabled = true
+                self.queryField.isEnabled = true
+            }
         }
     }
     
     var statusText = "" {
         didSet {
-            statusTextField.stringValue = statusText
-            print(statusText)
+            DispatchQueue.main.async {
+                self.statusTextField.stringValue = self.statusText
+                print(self.statusText)
+            }
         }
     }
     
@@ -87,29 +91,31 @@ class ViewController: NSViewController {
     
     func loadCSV(path: URL) {
         statusText = "read \(path)"
-        
-        time({
-            do {
+
+        do {
+            try time({
                 trie = try Trie(csvFile: path)
-            } catch {
-                statusText = error.localizedDescription
-            }
-        }, then: { (seconds) in
-            statusText = "csv read in \(seconds) seconds"
-        })
+            }, then: { (seconds) in
+                statusText = "csv read in \(seconds) seconds"
+            })
+        } catch {
+            print(error.localizedDescription)
+            statusText = error.localizedDescription
+        }
     }
     
     func loadTrie(path: URL) {
         statusText = "read \(path)"
-        time({
-            do {
+        do {
+            try time({
                 trie = try Trie(trieFile: path)
-            } catch {
-                statusText = error.localizedDescription
-            }
-        }, then: { (seconds) in
-            statusText = "trie read in \(seconds) seconds"
-        })
+            }, then: { (seconds) in
+                statusText = "trie read in \(seconds) seconds"
+            })
+        } catch {
+            print(error.localizedDescription)
+            statusText = error.localizedDescription
+        }
     }
     
     func writeTrie(path: URL) {
