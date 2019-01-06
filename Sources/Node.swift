@@ -48,9 +48,9 @@ extension Node {
         if totalCost <= max {
             let word = String(path)
             found[word] = totalCost
-            if debug { print("\(cost) +: "  + String(path)) }
+            if debug { print("\(cost) +: "  + String(path.appending(character))) }
         } else {
-            if debug { print("\(cost) #: "  + String(path)) }
+            if debug { print("\(cost) #: "  + String(path.appending(character))) }
         }
     }
     
