@@ -99,6 +99,13 @@ extension Node {
             searchNode(searched, cost, maxCost: max, path, &found)
         }
     }
+    
+    func listWords(_ words: inout [String], path: [Character]) {
+        if self.isTerminating {
+            words.append(String(path))
+        }
+        children.forEach({ $0.listWords(&words, path: path.appending(character)) })
+    }
 }
 
 // MARK: - Equality

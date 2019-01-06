@@ -21,3 +21,9 @@ extension Array {
         return copy
     }
 }
+
+extension Array where Element == String {
+    func contains(word: String) -> Bool {
+        return self.first(where: { $0 == word }) != nil
+    }
+}

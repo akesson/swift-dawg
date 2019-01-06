@@ -92,6 +92,12 @@ public class Trie {
         return false
     }
     
+    public func listAllWords() -> [String] {
+        var words = [String]()
+        root.children.forEach({ $0.listWords(&words, path: [Character]()) })
+        return words
+    }
+    
     public func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
         let substring = word[word.startIndex..<word.endIndex]
         var found = MinValueDictionary()
