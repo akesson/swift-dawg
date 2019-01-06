@@ -99,7 +99,7 @@ public class Trie {
     }
     
     public func approximateMatches(for word: String, maxDistance: Int) -> MinValueDictionary {
-        let substring = word[word.startIndex..<word.endIndex]
+        let substring = word.lowercased()[word.startIndex..<word.endIndex]
         var found = MinValueDictionary()
         for node in root.children {
             node.search(substring, 0, maxCost: maxDistance, [], &found)
