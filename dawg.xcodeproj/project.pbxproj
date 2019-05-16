@@ -423,12 +423,15 @@
 					};
 					C330532B21B1DFC600A77CA2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C330533C21B1E17400A77CA2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C330534421B1E17500A77CA2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C3A3591121DDE8CD00E5C755 = {
 						CreatedOnToolsVersion = 10.1;
@@ -728,7 +731,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.DawgTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -748,7 +751,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.DawgTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -775,7 +778,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -803,7 +806,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -825,7 +828,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.Dawg-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -847,7 +850,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "human.solutions.dawg.Dawg-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
