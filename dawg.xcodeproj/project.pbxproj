@@ -25,6 +25,7 @@
 		C330536621B3E5A100A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536721B3E5B600A77CA2 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536521B3E5A100A77CA2 /* TrieNode.swift */; };
 		C330536921B41F9800A77CA2 /* MinValueDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330536821B41F9800A77CA2 /* MinValueDictionary.swift */; };
+		C33DDBC3228DD0B400FE21D8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39372BD21DFA1620039C1EC /* Character.swift */; };
 		C39372AF21DF3C340039C1EC /* FlatBuffersSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C304C76C21D7A16A0090B389 /* FlatBuffersSwift.framework */; };
 		C39372B921DF403B0039C1EC /* FlatBuffersSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C304C76421D79EC30090B389 /* FlatBuffersSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C39372BE21DFA1620039C1EC /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39372BD21DFA1620039C1EC /* Character.swift */; };
@@ -593,6 +594,7 @@
 				C3C31EF321D3E7B5005A3C6C /* MinValueDictionary.swift in Sources */,
 				C3B78DD521DD252400DFECE3 /* Array.swift in Sources */,
 				C3B78DBC21D7E0B300DFECE3 /* SerializedNodes.swift in Sources */,
+				C33DDBC3228DD0B400FE21D8 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

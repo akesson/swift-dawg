@@ -28,7 +28,7 @@ class NodeTests: XCTestCase {
     
     func testSerializeInMemory() {
         let serialized = catTrie.serialize()
-        let catTrieFromSerialized = Trie(serialized.array)
+        let catTrieFromSerialized = Trie(serialized)
         XCTAssertTrue(catTrie == catTrieFromSerialized)
     }
 
@@ -37,7 +37,7 @@ class NodeTests: XCTestCase {
         let data = try serializer.makeData()
         
         let deserializer = SerializedNodes.from(data: data)
-        guard let array = deserializer?.array else {
+        guard let array = deserializer else {
             XCTFail("no data")
             return
         }
